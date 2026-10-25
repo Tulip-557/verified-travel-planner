@@ -468,6 +468,14 @@ $PY --input 新线索.json --merge 旧线索卡.json -o 线索卡.json     # 增
 - **早起包/夜游包**：作息敏感型项目一律不进主线，但必须落成两个包——「🌅 早起的人（自愿）」+「🌙 夜游包（自愿）」，写清几点出几点回谁去，标注作息代价
 - 🔴 **特殊时段玩法必须主动提出**：凡「有最佳时段、错过就废」的玩法（夜爬/拍星空/日出日落/晨雾/云海/夜景亮灯/灯光秀/早市/赶海/观鸟/夜市），不许因默认晚起就静默砍掉——必须显式交代「项目+为什么非得那个点+作息代价+归入哪个包+不去拿什么补」
 
+> 🔧 **个性化约定的机器体检**（2026-10-25 起有工具支撑）：
+> ```bash
+> python "<SKILL_ROOT>/tools/preference_check.py" 路书_XX.json --request trip_request.json
+> ```
+> 查四件事：偏好声明落没落事实源、人群×模式冲突词（带长辈却排夜排/暴走）、
+> 特殊时段玩法归没归包（日落/星空必须显性交代代价）、特种兵打卡数给没给数字。
+> 提醒清单不是返工令——「没做到的如实报出来，比假装做到了值钱」。
+
 **人数结构 × 玩法 × 体力三轴正交**，可任意叠加：
 
 | 模式 | 核心 | 住 | 吃 | 拍 | 节奏 |
@@ -821,6 +829,11 @@ python "<SKILL_ROOT>/tools/route_optimize.py" nearby_XX.json --fix-end
 **临行前 3 天 · 两件事一起做**（这是「时效」与「天气」的唯一正确时点）：
 
 ```bash
+# ⓪ 先出一张倒排清单：规则锚点（预约/天气终判）+ 数据锚点（须重查/门票[D]/退改条款）
+python "<SKILL_ROOT>/tools/countdown.py" 路书_XX.json
+```
+
+```bash
 # ① 时效体检：把出发日当基准，看哪些数字已经过期
 python "<SKILL_ROOT>/tools/freshness.py" 路书_XX_事实源.json --strict
 #    须重查的门票/房价/车次逐个回原渠道复核；路线类回高德跑一次 amap-snapshot 整批刷新
@@ -939,6 +952,8 @@ verified-travel-planner/
 │   ├── quality_report.py       ← 行程质量评分（节奏疲劳/成本效率/体验匹配/衔接稳健；四维逐点可解释，不与 evaluate 重复）
 │   ├── route_optimize.py       ← 动线优化建议（最近邻+2-opt，直线【估算】口径；只出建议绝不写回事实源）
 │   ├── mcp_server.py           ← 零依赖 MCP 服务（JSON-RPC 2.0 over stdio，把引擎与闸门暴露给任何 MCP 客户端）
+│   ├── preference_check.py      ← 偏好覆盖体检（偏好声明/人群适配/特殊时段玩法归包/特种兵打卡数——提醒清单）
+│   ├── countdown.py             ← 临行倒排清单（T-5/T-3/T-1/T-0 规则锚点 + freshness/门票[D]/退改数据锚点）
 │   ├── bulletin.py             ← 行前公告扫描（事件 sweep 计划 + 死线分级 + 渲染摘要）
 │   ├── review_trust.py         ← 口碑体检（水军/推广信号：只出信号不结论）
 │   ├── validate_skill.py       ← 文档计数断言校验（防「N 项 / N 模块」漂移；可进 CI）

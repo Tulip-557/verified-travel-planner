@@ -89,7 +89,7 @@ python verified-travel-planner/tools/doctor.py
 
 | 闸门 | 拦什么 |
 |---|---|
-| `unittest` | 153 条机器断言：闸门自身的输入、退避、比对行为回归 |
+| `unittest` | 162 条机器断言：闸门自身的输入、退避、比对行为回归 |
 | `validate_skill` | 自指校验：文档声称的能力与代码事实是否一致（19 条规则） |
 | `consistency` | 版式一致性：有人手改 HTML、漏了导航、留了占位符 |
 | `source_audit` | 证据标注纪律（8 条规则）：时戳、双源、死线、出路、来源闭环 |
@@ -123,7 +123,7 @@ python verified-travel-planner/tools/ship.py     # 全绿才算可交付；有�
 
 > 这套闸门是**给自己用的**：开发过程中它抓出过「门票标了够不着的等级」
 > 「精简版把末班车时间压没了」「evaluate 喂错文件层级拿到假的满分」等真问题，
-> 每一条都固化成了断言（`tests/` 153 条）。
+> 每一条都固化成了断言（`tests/` 162 条）。
 
 ### 3️⃣ 双版本交付 + 单文件可开
 
@@ -183,6 +183,11 @@ python verified-travel-planner/tools/ship.py     # 全绿才算可交付；有�
   「排不排得通」重复
 - **动线优化建议**（`route_optimize.py`）：最近邻 + 2-opt 给出更省的到访顺序，直线口径
   【估算】明说非实测车程；**只出建议，绝不写回事实源**
+- **偏好覆盖体检**（`preference_check.py`）：偏好声明 / 人群×模式适配（带长辈却排夜排暴走）/
+  特殊时段玩法显性化（日落星空必须归早起包·夜游包并交代代价）/ 特种兵打卡数显性——
+  把 SKILL.md 的个性化约定变成机器可判的提醒清单
+- **临行倒排清单**（`countdown.py`）：规则锚点（T-5 预约/T-3 抢票/T-1 天气终判/T-0）+
+  数据锚点（freshness 须重查 / 门票 [D] / 退改条款）→ 每条带出处的 T-N 行动清单
 
 ## 它明确不做什么
 
@@ -389,10 +394,10 @@ verified-travel-planner/
 ├── SKILL.md                    ← 主工作流（铁律 / 阶段 0-6 / 交付自查清单）
 ├── LICENSE / THIRD_PARTY_NOTICES.md   ← MIT 衍生作品，分发必须随包
 ├── engine/travel_planner/      ← 检查引擎（14 个模块，纯标准库）
-├── tools/                      ← 28 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
+├── tools/                      ← 30 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
 ├── references/                 ← 渐进加载的参考文档（用到才读）
 ├── assets/                     ← 基准骨架 + 事实源模板
-└── tests/                      ← 153 条断言（标准库 unittest）
+└── tests/                      ← 162 条断言（标准库 unittest）
 ```
 
 ---

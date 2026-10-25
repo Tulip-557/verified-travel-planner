@@ -139,6 +139,7 @@ def dim_pacing(days, cons, request):
         })
         starts = [_parse_dt(a['start']) for a in real if a.get('start')]
         ends = [_parse_dt(a['end']) for a in real if a.get('end')]
+        span = 0.0
         if starts and ends:
             span = (max(ends) - min(starts)).total_seconds() / 60
             items.append({
@@ -156,6 +157,29 @@ def dim_pacing(days, cons, request):
                 'rule': '≤ %s km/日（mobility 或 constraints）' % max_walk,
                 'status': 'RED' if walk > max_walk else ('WARN' if walk > max_walk * 0.8 else 'OK'),
                 'detail': '%.1f km / 上限 %s km' % (walk, max_walk),
+            })
+        # 节奏画像：把当日三项占用（活动数/跨度/步行）折成一个可读等级——
+        # 不引入新判据，只把上面三条的比值汇总成人话（可游玩性的直观锚点）。
+        loads = []
+        if len(real):
+            loads.append(len(real) / float(cap))
+        if starts and ends:
+            loads.append(span / float(max_minutes))
+        if walk:
+            loads.append(walk / float(max_walk))
+        if loads:
+            top = max(loads)
+            grade = ('超载' if top > 1 else '满' if top > 0.85
+                     else '适中' if top > 0.6 else '轻松')
+            items.append({
+                'day': day, 'subject': '节奏画像',
+                'rule': '当日三项占用（活动数/跨度/步行）最高比值 → 轻松<60% ≤ 适中 <85% ≤ 满 ≤100% < 超载',
+                'status': 'OK',
+                'detail': '%s（最高占用 %.0f%%：%d 项 %.0f%% ｜ 跨度 %.0f%% ｜ 步行 %.0f%%）'
+                          % (grade, top * 100,
+                             len(real), loads[0] * 100,
+                             (span / float(max_minutes)) * 100 if starts and ends else 0,
+                             (walk / float(max_walk)) * 100 if walk else 0),
             })
         for a in real:
             if a.get('type') != 'ATTRACTION':

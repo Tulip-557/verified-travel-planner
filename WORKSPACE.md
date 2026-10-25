@@ -311,7 +311,7 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   已修（门票降 `[D]` 并补官方渠道出路、送礼段补时戳、孤儿来源挂到日落活动）。  
   **注意：这 5 处都不是数字错，是把单源信息标成了够不着的等级**——正是「标注纪律」与  
   「事实正确」的区别。负向样本 6 类违规全部命中；退出码 0/2 三态验证正确。
-- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（153 条测试，标准库  
+- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（162 条测试，标准库  
   unittest）、`tools/ship.py` 一键回归（九道闸门 + 渲染基线，FAIL 退出码 2）、  
   CI `.github/workflows/gates.yml`（gates 跑 `ship.py` + `gitleaks` 密钥扫描）。  
   命令：`python verified-travel-planner/tools/ship.py`
@@ -338,6 +338,14 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   车程；--fix-end 钉死末点；**不写任何文件**（采纳是人的决策，自动改事实源会让
   「每个数字有来源」失效）。实测：东莞 nearby 3 停留点判「已近优不动它」（诚实负向），
   构造 Z 字折返 100.1→66.7 km 省 33%。
+- [x] **2026-10-25 · 偏好覆盖体检 `preference_check.py` + 临行倒排 `countdown.py` + 质量节奏画像**
+  （攻略体验层：个性化/时效性/可游玩性）——preference_check 把 SKILL.md 纯自觉的个性化约定
+  变成机器可判四条（P1 偏好声明/P2 人群×模式冲突词窄口径/P3 特殊时段玩法归包/
+  P4 特种兵打卡数显性）；countdown 从结构化锚点（SKILL 规则 T-5/3/1/0 + freshness
+  须重查 + 门票 [D] + 退改条款）生成每条带出处的 T-N 清单，_ 字段元说明不混入；
+  quality_report 新增逐日节奏画像（三项占用最高比值 → 轻松/适中/满/超载）。
+  实测：东莞抓到真提醒 2 条（无 preferences 声明、鳒鱼洲夜景未归包）；广佛倒排 12 条
+  四档齐全。
 - [x] **2026-10-25 · MCP 服务 `tools/mcp_server.py`**（landscape P3 收口）——零第三方依赖实现
   JSON-RPC 2.0 over stdio（initialize/notifications/ping/tools/list/tools/call，换行分帧，
   日志走 stderr 不污染 stdout 专线）；暴露 12 个 MCP 能力（doctor/validate_request/evaluate/
