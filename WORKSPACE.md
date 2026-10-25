@@ -311,10 +311,21 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   已修（门票降 `[D]` 并补官方渠道出路、送礼段补时戳、孤儿来源挂到日落活动）。  
   **注意：这 5 处都不是数字错，是把单源信息标成了够不着的等级**——正是「标注纪律」与  
   「事实正确」的区别。负向样本 6 类违规全部命中；退出码 0/2 三态验证正确。
-- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（112 条测试，标准库  
+- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（128 条测试，标准库  
   unittest）、`tools/ship.py` 一键回归（九道闸门 + 渲染基线，FAIL 退出码 2）、  
   CI `.github/workflows/gates.yml`（gates 跑 `ship.py` + `gitleaks` 密钥扫描）。  
   命令：`python verified-travel-planner/tools/ship.py`
+- [x] **2026-10-25 · 证据健康度一页纸 `evidence_report.py`**（landscape P2 收口）——子进程
+  实跑 source_audit/compact_check/claim_audit/freshness（--json 结构化输出）+ 自算徽章分布
+  与 [D] 清单（图例句过滤），汇成单文件 HTML《可信度概览》；echo/cross 默认不联网抓页
+  （--live 才实跑，与 ship 同款共享缓存）；**纯汇总不阻断**（有 FAIL 也退出 0——
+  报告是交代不是闸门）。东莞实测：267 枚徽章（A124/B39/C39/D65）、UNVERIFIED 96、
+  须重查 2，与各闸门单独跑的结论一致。
+- [x] **2026-10-25 · 改版审计 `revision_audit.py`**（landscape P2 / 二次开发方案 P1 收口）——
+  两版事实源声明级 diff：difflib 对齐 + 单位分桶数值比对 + 徽章等级升降（A>B>C>D 排秩）；
+  降级须在 v2 的 `meta.revision_log` 用 about 子串声明（留痕即合规），`--strict` 拦
+  **悄悄降级**（退出码 2）；整句改写的绕行用「删 [A]/[B] × 新增声明」二次相似配对
+  （≥0.3）兜住，判「疑似改写降级」。东莞真实数据演练：¥89→¥109 与 [A]→[C] 均现形。
 - [ ] **C 级 · `examples/` 更多样例**——现有两个示例已分别覆盖「完整交付链路」（东莞）与  
   「渲染基线」（成都）两类用途；缺的是第三个用途（如**多城串联**或**纯过境**），需要时再补
 - [x] **P4 · 行前公告扫描 `bulletin.py`（2026-10-01 落地）**——`--plan` 按 POI × 五类

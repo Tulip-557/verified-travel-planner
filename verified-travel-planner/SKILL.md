@@ -795,6 +795,14 @@ python "<SKILL_ROOT>/tools/compact_check.py" --facts 路书_XX_事实源.json \
 2. **本次真正跑了哪些检查**——覆盖声明的「实检 N/M」与未覆盖项，尤其没做的 ⑲ ⑳
 3. **配图性质**——AI 生成或图库素材都要说明，标了「（示意）」，**不是当地实景**
 
+> 📄 **附一页可信度概览**（推荐，2026-10-25 起有工具支撑）：
+> ```bash
+> python "<SKILL_ROOT>/tools/evidence_report.py" 路书_XX.json
+> ```
+> 把上面三件事里的 ①② 汇成单文件 HTML《可信度概览》（徽章分布 / 闸门状态 /
+> 须重查清单 / [D] 清单），交付时随路书一起发。**它是报告不是评分**——
+> 报告是交代，分数会诱发刷分。
+
 ---
 
 ### 阶段 6 · 行程中陪伴 / 复盘回流
@@ -823,7 +831,12 @@ python "<SKILL_ROOT>/tools/bulletin.py" --plan --facts 路书_XX.json
 **陪伴模式**（已出发在路上的三种状态）：
 - **已出发在路上**：即时问答 + 当日精排
 - **已到目的地**：当日/次日逐时段精排
-- 当日调整后**必须回写事实源 JSON**
+- 当日调整后**必须回写事实源 JSON**；改版前后跑一次改版审计——
+  ```bash
+  python "<SKILL_ROOT>/tools/revision_audit.py" 路书_XX_v1.json 路书_XX.json --strict
+  ```
+  数值变化与等级升降逐条现形；降级（如重查后 [A]→[D]）在 `meta.revision_log`
+  登记 `{about, from, to, reason}`——**降级不禁止，禁止的是无声**。
 
 **复盘回流**（事件触发，不是每次生成都复盘）：
 
@@ -910,6 +923,8 @@ verified-travel-planner/
 │   ├── claim_audit.py          ← 声明↔留痕比对（内容真实第 1 层：实采值必须如实进路书）
 │   ├── echo_audit.py           ← 来源回声核查（内容真实第 2 层：引用页里真有那个值）
 │   ├── cross_check.py          ← 独立源核查（内容真实第 3 层：拆穿转引充双源）
+│   ├── evidence_report.py      ← 证据健康度一页纸（聚合各闸门结论+徽章分布→HTML 可信度概览；纯汇总不阻断）
+│   ├── revision_audit.py       ← 改版审计（两版事实源声明级 diff：数值变化/等级升降；降级须 revision_log 声明，--strict 拦悄悄降级）
 │   ├── bulletin.py             ← 行前公告扫描（事件 sweep 计划 + 死线分级 + 渲染摘要）
 │   ├── review_trust.py         ← 口碑体检（水军/推广信号：只出信号不结论）
 │   ├── validate_skill.py       ← 文档计数断言校验（防「N 项 / N 模块」漂移；可进 CI）

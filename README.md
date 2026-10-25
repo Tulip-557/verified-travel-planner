@@ -89,7 +89,7 @@ python verified-travel-planner/tools/doctor.py
 
 | 闸门 | 拦什么 |
 |---|---|
-| `unittest` | 112 条机器断言：闸门自身的输入、退避、比对行为回归 |
+| `unittest` | 128 条机器断言：闸门自身的输入、退避、比对行为回归 |
 | `validate_skill` | 自指校验：文档声称的能力与代码事实是否一致（19 条规则） |
 | `consistency` | 版式一致性：有人手改 HTML、漏了导航、留了占位符 |
 | `source_audit` | 证据标注纪律（8 条规则）：时戳、双源、死线、出路、来源闭环 |
@@ -123,7 +123,7 @@ python verified-travel-planner/tools/ship.py     # 全绿才算可交付；有�
 
 > 这套闸门是**给自己用的**：开发过程中它抓出过「门票标了够不着的等级」
 > 「精简版把末班车时间压没了」「evaluate 喂错文件层级拿到假的满分」等真问题，
-> 每一条都固化成了断言（`tests/` 112 条）。
+> 每一条都固化成了断言（`tests/` 128 条）。
 
 ### 3️⃣ 双版本交付 + 单文件可开
 
@@ -174,6 +174,10 @@ python verified-travel-planner/tools/ship.py     # 全绿才算可交付；有�
 - **口碑体检**（`review_trust.py`）：评论区水军/推广**信号**（复读指纹/推广标记/立场错配/同日爆发）——只出信号不结论，不产「调整后评分」
 - **脱敏双轨**：从一份源路书派生出「对外版（脱敏）」与「自用版（含情报原档）」
 - **社会情报**：21 条渠道的能力矩阵与采集计划（本机实测可用 9 条），口碑层只出「信号」不出结论
+- **证据健康度一页纸**（`evidence_report.py`）：聚合五道内容闸门的结构化结论 + 徽章分布 +
+  `[D]` 未核实清单，生成单文件 HTML《可信度概览》——报告是交代，不是评分
+- **改版审计**（`revision_audit.py`）：两版事实源的声明级 diff——数值变化、证据等级升降；
+  降级须在 `meta.revision_log` 显式声明（写清 why），`--strict` 下悄悄降级即退出码 2
 
 ## 它明确不做什么
 
@@ -379,10 +383,10 @@ verified-travel-planner/
 ├── SKILL.md                    ← 主工作流（铁律 / 阶段 0-6 / 交付自查清单）
 ├── LICENSE / THIRD_PARTY_NOTICES.md   ← MIT 衍生作品，分发必须随包
 ├── engine/travel_planner/      ← 检查引擎（14 个模块，纯标准库）
-├── tools/                      ← 23 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
+├── tools/                      ← 25 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
 ├── references/                 ← 渐进加载的参考文档（用到才读）
 ├── assets/                     ← 基准骨架 + 事实源模板
-└── tests/                      ← 112 条断言（标准库 unittest）
+└── tests/                      ← 128 条断言（标准库 unittest）
 ```
 
 ---
