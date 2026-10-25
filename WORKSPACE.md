@@ -338,6 +338,14 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   车程；--fix-end 钉死末点；**不写任何文件**（采纳是人的决策，自动改事实源会让
   「每个数字有来源」失效）。实测：东莞 nearby 3 停留点判「已近优不动它」（诚实负向），
   构造 Z 字折返 100.1→66.7 km 省 33%。
+- [ ] **待办 · 推送公开仓（2026-10-25 网络不通，如实留痕）**——本地新增 6 个提交
+  （ed8717b 合规收口 → fd07dbd 体验层三件套 → 本次记录，均 ship 全绿）。GitHub main 在
+  52fc37a8（PR #5 公开仓合并版），与本地 a9ca39a **树完全一致**（0f866a1f）但历史不同源
+  （公开仓按清洗流程重建过）。网络恢复后二选一：
+  ① 嫁接推送：git fetch origin && git rebase --onto origin/main a9ca39a main && git push origin main
+  （只重放 5 个新提交到 52fc37a8 上，两边树已核对一致，无冲突预期）
+  ② 走既有「公开仓发布流」。备份：D:/旅游/upgrade_2026-10-25.bundle（含全部本地提交）。
+  注意 github.com:443 当日实测不可达（api.github.com 可达），5 次重试均败——不是凭据问题。
 - [x] **2026-10-25 · 偏好覆盖体检 `preference_check.py` + 临行倒排 `countdown.py` + 质量节奏画像**
   （攻略体验层：个性化/时效性/可游玩性）——preference_check 把 SKILL.md 纯自觉的个性化约定
   变成机器可判四条（P1 偏好声明/P2 人群×模式冲突词窄口径/P3 特殊时段玩法归包/
