@@ -938,6 +938,7 @@ verified-travel-planner/
 │   ├── revision_audit.py       ← 改版审计（两版事实源声明级 diff：数值变化/等级升降；降级须 revision_log 声明，--strict 拦悄悄降级）
 │   ├── quality_report.py       ← 行程质量评分（节奏疲劳/成本效率/体验匹配/衔接稳健；四维逐点可解释，不与 evaluate 重复）
 │   ├── route_optimize.py       ← 动线优化建议（最近邻+2-opt，直线【估算】口径；只出建议绝不写回事实源）
+│   ├── mcp_server.py           ← 零依赖 MCP 服务（JSON-RPC 2.0 over stdio，把引擎与闸门暴露给任何 MCP 客户端）
 │   ├── bulletin.py             ← 行前公告扫描（事件 sweep 计划 + 死线分级 + 渲染摘要）
 │   ├── review_trust.py         ← 口碑体检（水军/推广信号：只出信号不结论）
 │   ├── validate_skill.py       ← 文档计数断言校验（防「N 项 / N 模块」漂移；可进 CI）

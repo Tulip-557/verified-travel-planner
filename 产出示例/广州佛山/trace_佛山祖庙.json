@@ -1,0 +1,109 @@
+{
+  "provider": "amap",
+  "generated_at": "2026-10-25T09:53:11.492660+00:00",
+  "call_count": 1,
+  "calls": [
+    {
+      "endpoint": "/v3/place/text",
+      "params": {
+        "keywords": "佛山祖庙",
+        "offset": "1",
+        "page": "1",
+        "extensions": "all",
+        "city": "佛山",
+        "citylimit": "true"
+      },
+      "fetched_at": "2026-10-25T09:53:11.492660+00:00",
+      "response": {
+        "suggestion": {
+          "keywords": [],
+          "cities": []
+        },
+        "count": "142",
+        "infocode": "10000",
+        "pois": [
+          {
+            "parent": [],
+            "pcode": "440000",
+            "keytag": "寺庙",
+            "type": "风景名胜;风景名胜;国家级景点",
+            "photos": [
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/c31362af65dd39b7cd9f4185d1f734c2"
+              },
+              {
+                "provider": [],
+                "title": "佛山祖庙",
+                "url": "http://store.is.autonavi.com/showpic/49beef7bd30d098918c846c2869d1349"
+              },
+              {
+                "provider": [],
+                "title": "佛山祖庙",
+                "url": "http://store.is.autonavi.com/showpic/4336deebf15657084a202fc70b0bfafe"
+              }
+            ],
+            "building": [],
+            "typecode": "110202",
+            "poiweight": [],
+            "citycode": "0757",
+            "adname": "禅城区",
+            "children": [],
+            "featured_reviews_remake": [],
+            "tel": "0757-82286913",
+            "id": "B02F50768W",
+            "tag": [],
+            "entr_location": "113.112577,23.029138",
+            "adcode": "440604",
+            "pname": "广东省",
+            "biz_type": "tour",
+            "cityname": "佛山市",
+            "postcode": [],
+            "business_area": "祖庙",
+            "childtype": [],
+            "atag": [],
+            "name": "祖庙",
+            "shopid": [],
+            "favorite_num": [],
+            "navi_poiid": "F49F012041_143118",
+            "distance": [],
+            "importance": [],
+            "biz_ext": {
+              "cost": [],
+              "opentime2": "2026-02-16,08:30-17:00,2026-02-17,07:30-19:00,2026-02-18至2026-02-23,08:30-18:30,2026-02-24, 08:30-18:00",
+              "rating": "4.9",
+              "open_time": "08:30-18:30 08:30-18:00",
+              "ticket_ordering": "0"
+            },
+            "recommend": "3",
+            "discount_num": "0",
+            "gridcode": "3413403910",
+            "shopinfo": "2",
+            "alias": [],
+            "event": [],
+            "indoor_map": "0",
+            "email": [],
+            "timestamp": "2026-10-25 00:28:43",
+            "website": [],
+            "address": "祖庙街道兰桂社区祖庙路21号(祖庙地铁站出入口步行260米)",
+            "space_num": [],
+            "match": "0",
+            "indoor_data": {
+              "cmsid": [],
+              "truefloor": [],
+              "cpid": [],
+              "floor": []
+            },
+            "exit_location": [],
+            "location": "113.113510,23.028945",
+            "groupbuy_num": "0",
+            "featured_reviews": []
+          }
+        ],
+        "status": "1",
+        "info": "OK"
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="640" height="300" fill="#f4f8fb"/>
+  <text x="20" y="30" font-size="18" font-weight="600" fill="#1c2733">D2 跨城动线示意（广州 → 佛山 → 南风古灶）</text>
+  <text x="20" y="50" font-size="12" fill="#5b6b7a">示意非等比 · 车程数据：高德公交/驾车/步行实采 2026-10-25 [A] · 本图为示意图，非实拍</text>
+  <!-- 广佛分界 -->
+  <line x1="320" y1="70" x2="320" y2="270" stroke="#8aa0b5" stroke-dasharray="6 5" stroke-width="2"/>
+  <text x="150" y="270" font-size="13" fill="#5b6b7a">广州</text>
+  <text x="480" y="270" font-size="13" fill="#5b6b7a">佛山</text>
+  <!-- 地标点 -->
+  <g font-size="13" fill="#1c2733">
+    <circle cx="120" cy="110" r="8" fill="#8aa0b5"/><text x="80" y="90">陈家祠一带（出发）</text>
+    <circle cx="400" cy="110" r="8" fill="#e8b04b"/><text x="375" y="90">祖庙</text>
+    <circle cx="480" cy="160" r="8" fill="#5aa17f"/><text x="455" y="185">岭南天地</text>
+    <circle cx="560" cy="220" r="8" fill="#b0763c"/><text x="530" y="245">南风古灶</text>
+  </g>
+  <!-- 动线 -->
+  <g stroke="#c0392b" stroke-width="3" fill="none" marker-end="url(#arr2)">
+    <path d="M130,110 L392,110"/>
+    <path d="M408,116 L472,155"/>
+    <path d="M490,165 L552,215"/>
+  </g>
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <g font-size="12" fill="#c0392b">
+    <text x="170" y="100">公交 61 分钟 / 24.1 公里 / ¥6 / 换乘 1 次 [A]</text>
+    <text x="395" y="145" transform="rotate(38 395 145)">步行 11 分钟</text>
+    <text x="480" y="200">驾车 25 分钟 / 5.3 公里 [A]</text>
+  </g>
+  <!-- 指北针 -->
+  <g transform="translate(596,262)">
+    <circle r="16" fill="#fff" stroke="#8aa0b5"/>
+    <path d="M0,-11 L4,6 L0,2 L-4,6 z" fill="#c0392b"/>
+    <text x="-4" y="14" font-size="10" fill="#1c2733">N</text>
+  </g>
+</svg>

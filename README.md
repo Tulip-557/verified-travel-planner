@@ -89,7 +89,7 @@ python verified-travel-planner/tools/doctor.py
 
 | 闸门 | 拦什么 |
 |---|---|
-| `unittest` | 144 条机器断言：闸门自身的输入、退避、比对行为回归 |
+| `unittest` | 153 条机器断言：闸门自身的输入、退避、比对行为回归 |
 | `validate_skill` | 自指校验：文档声称的能力与代码事实是否一致（19 条规则） |
 | `consistency` | 版式一致性：有人手改 HTML、漏了导航、留了占位符 |
 | `source_audit` | 证据标注纪律（8 条规则）：时戳、双源、死线、出路、来源闭环 |
@@ -123,7 +123,7 @@ python verified-travel-planner/tools/ship.py     # 全绿才算可交付；有�
 
 > 这套闸门是**给自己用的**：开发过程中它抓出过「门票标了够不着的等级」
 > 「精简版把末班车时间压没了」「evaluate 喂错文件层级拿到假的满分」等真问题，
-> 每一条都固化成了断言（`tests/` 144 条）。
+> 每一条都固化成了断言（`tests/` 153 条）。
 
 ### 3️⃣ 双版本交付 + 单文件可开
 
@@ -341,6 +341,7 @@ python verified-travel-planner/tools/ship.py --list   # 只看识别到哪些示
 |---|---|
 | `东莞/` | **完整交付链路**：事实源 + itinerary + final_plan + 完整版/精简版 HTML + 社媒线索，九道闸门全绿 |
 | `成都/`（渲染基线） | 版式**逐字节复现**的回归桩件，不参与内容闸门（它自述为 `render_fixture`） |
+| `广州佛山/`（多城串联） | **第三类样例**：跨城动线（公交/打车双模式实测）+ POI 级路段留痕闭环，2026-10-25 现采，闸门全绿 |
 
 > **关于示例里的信息**：示例已去掉**当事人信息**（同行关系等），
 > 地名与其中的实测数值（营业时间、门票、车程）保持原样——那些数对应真实查询结果，
@@ -388,10 +389,10 @@ verified-travel-planner/
 ├── SKILL.md                    ← 主工作流（铁律 / 阶段 0-6 / 交付自查清单）
 ├── LICENSE / THIRD_PARTY_NOTICES.md   ← MIT 衍生作品，分发必须随包
 ├── engine/travel_planner/      ← 检查引擎（14 个模块，纯标准库）
-├── tools/                      ← 27 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
+├── tools/                      ← 28 个命令行工具（统一 CLI + 九道闸门 + ship.py 一键回归）
 ├── references/                 ← 渐进加载的参考文档（用到才读）
 ├── assets/                     ← 基准骨架 + 事实源模板
-└── tests/                      ← 144 条断言（标准库 unittest）
+└── tests/                      ← 153 条断言（标准库 unittest）
 ```
 
 ---

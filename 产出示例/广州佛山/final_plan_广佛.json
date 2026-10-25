@@ -1,0 +1,218 @@
+{
+ "name": "广佛双城 · 2 天 1 晚（城市地标 + 岭南文化）",
+ "days": [
+  {
+   "activities": [
+    {
+     "id": "d1-tower",
+     "type": "ATTRACTION",
+     "name": "广州塔",
+     "description": "广州地标观景塔，高德评分 4.8。",
+     "features": [
+      "城市地标观景",
+      "珠江夜景位"
+     ],
+     "why_visit": [
+      "双城线的第一站，位置顺地铁线",
+      "评分 4.8（高德）"
+     ],
+     "suggested_duration_minutes": 150,
+     "best_time": "白天",
+     "physical_load": "低",
+     "caveats": [
+      "登塔票分楼层档位，价格未核实——官方渠道自查"
+     ],
+     "source_refs": [
+      "src-amap-poi"
+     ]
+    },
+    {
+     "id": "d1-shamian",
+     "type": "ATTRACTION",
+     "name": "沙面公园",
+     "description": "沙面岛欧陆建筑群，高德评分 4.7。",
+     "features": [
+      "欧陆建筑群",
+      "江畔步道"
+     ],
+     "why_visit": [
+      "免费户外，衔接广州塔→陈家祠动线中点",
+      "评分 4.7（高德）"
+     ],
+     "suggested_duration_minutes": 120,
+     "best_time": "白天",
+     "physical_load": "低",
+     "caveats": [
+      "以散步为主，正午注意遮阳"
+     ],
+     "source_refs": [
+      "src-amap-poi"
+     ]
+    },
+    {
+     "id": "d1-chenjiaci",
+     "type": "ATTRACTION",
+     "name": "陈家祠广场",
+     "description": "陈氏书院广场（岭南建筑装饰集大成），高德评分 3.7（广场条目）。",
+     "features": [
+      "岭南祠堂建筑",
+      "砖雕灰塑"
+     ],
+     "why_visit": [
+      "D1 收尾点，次日由此跨城",
+      "与佛山祖庙同属岭南文化线"
+     ],
+     "suggested_duration_minutes": 90,
+     "best_time": "白天",
+     "physical_load": "低",
+     "caveats": [
+      "本条采集到的是广场条目；书院本体的开放时间与门票未核实"
+     ],
+     "source_refs": [
+      "src-amap-poi"
+     ]
+    }
+   ]
+  },
+  {
+   "activities": [
+    {
+     "id": "d2-zumiao",
+     "type": "ATTRACTION",
+     "name": "祖庙",
+     "description": "佛山祖庙（北帝庙 + 黄飞鸿纪念馆），高德评分 4.9。",
+     "features": [
+      "岭南古建",
+      "黄飞鸿纪念馆"
+     ],
+     "why_visit": [
+      "跨城首站，公交 61 分钟直达片区",
+      "评分 4.9（高德）"
+     ],
+     "suggested_duration_minutes": 120,
+     "best_time": "白天",
+     "physical_load": "低",
+     "caveats": [
+      "门票未核实——「佛山市祖庙博物馆」公众号自查"
+     ],
+     "source_refs": [
+      "src-amap-poi",
+      "src-amap-route"
+     ]
+    },
+    {
+     "id": "d2-lingnan",
+     "type": "ATTRACTION",
+     "name": "岭南天地",
+     "description": "祖庙旁历史街区改造的商业街区，高德评分 4.8；步行 755 米即到。",
+     "features": [
+      "历史街区",
+      "餐饮集中"
+     ],
+     "why_visit": [
+      "与祖庙步行 11 分钟衔接，午餐顺路解决",
+      "评分 4.8（高德）"
+     ],
+     "suggested_duration_minutes": 105,
+     "best_time": "白天",
+     "physical_load": "低",
+     "caveats": [
+      "具体店铺与人均未核实"
+     ],
+     "source_refs": [
+      "src-amap-poi"
+     ]
+    },
+    {
+     "id": "d2-nanfeng",
+     "type": "ATTRACTION",
+     "name": "南风古灶",
+     "description": "五百年不熄龙窑，高德评分 4.7。",
+     "features": [
+      "古窑遗址",
+      "陶艺体验"
+     ],
+     "why_visit": [
+      "岭南文化线的收尾",
+      "评分 4.7（高德）"
+     ],
+     "suggested_duration_minutes": 120,
+     "best_time": "白天",
+     "physical_load": "中",
+     "caveats": [
+      "门票与陶艺体验收费未核实——官方公众号自查"
+     ],
+     "source_refs": [
+      "src-amap-poi"
+     ]
+    }
+   ]
+  }
+ ],
+ "segments": [
+  {
+   "from_id": "d1-tower",
+   "to_id": "d1-shamian",
+   "mode": "driving",
+   "duration_minutes": 33,
+   "distance_meters": 12608,
+   "buffer_minutes": 30,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  },
+  {
+   "from_id": "d1-shamian",
+   "to_id": "d1-chenjiaci",
+   "mode": "driving",
+   "duration_minutes": 18,
+   "distance_meters": 3517,
+   "buffer_minutes": 25,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  },
+  {
+   "from_id": "d1-chenjiaci",
+   "to_id": "d2-zumiao",
+   "mode": "transit",
+   "duration_minutes": 61,
+   "distance_meters": 24143,
+   "buffer_minutes": 60,
+   "estimated_cost": 6,
+   "_来源": "高德公交 2026-10-25（跨城，1 次换乘）"
+  },
+  {
+   "from_id": "d2-zumiao",
+   "to_id": "d2-lingnan",
+   "mode": "walking",
+   "duration_minutes": 11,
+   "distance_meters": 755,
+   "buffer_minutes": 15,
+   "estimated_cost": 0,
+   "_来源": "高德步行 2026-10-25"
+  },
+  {
+   "from_id": "d2-lingnan",
+   "to_id": "d2-nanfeng",
+   "mode": "driving",
+   "duration_minutes": 25,
+   "distance_meters": 5287,
+   "buffer_minutes": 25,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  }
+ ],
+ "sources": [
+  {
+   "id": "src-amap-poi",
+   "url": null,
+   "checked_at": "2026-10-25T17:55:00+08:00",
+   "note": "高德 POI 搜索（trace_*.json 留档）：评分/坐标/地址"
+  },
+  {
+   "id": "src-amap-route",
+   "url": null,
+   "checked_at": "2026-10-25T17:55:00+08:00",
+   "note": "高德路线实采（留痕_路段_广佛.json / snapshot_广佛.json 含 raw_calls）"
+  }
+ ]
+}

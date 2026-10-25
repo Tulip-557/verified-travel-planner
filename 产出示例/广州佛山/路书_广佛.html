@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="jianhao-travel-planner · 路书基准骨架 v1（源：jianhao-travel-planner, MIT）· 指纹 cd440ea068">
+<title>广佛双城 · 2 天 1 晚（城市地标 + 岭南文化） · 广州 · 佛山（双城串联）</title>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg:#F7F5F0; --surface:#FCFBF7; --ink:#1C1B17; --ink2:#5C594E; --ink3:#8A8677;
+  --line:#E3DFD3; --accent:#2F5D43; --accent-soft:#E6EEE8; --on-accent:#F7F5F0;
+  --warn:#8A6D1F; --warn-soft:#F3EEDF;
+  --red:#b5493a; --gold:#c8a45c;
+  --radius:14px; --fs:19px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:var(--fs)}
+body{background:var(--bg);color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--on-accent)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--accent);color:var(--on-accent);padding:8px 16px;z-index:99;border-radius:0 0 8px 0;font-size:.8rem}
+.skip:focus{left:0}
+
+/* ---------- 左侧栏 ---------- */
+.side{position:fixed;inset:0 auto 0 0;width:236px;overflow-y:auto;background:#F2EEE3;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:28px 22px;z-index:10}
+.logo{font-size:1.15rem;font-weight:800;letter-spacing:.02em}
+.logo span{color:var(--accent)}
+.logo-sub{font-size:.58rem;letter-spacing:.2em;color:var(--ink3);margin-top:4px;text-transform:uppercase}
+.nav-group{margin-top:26px}
+.nav-label{font-size:.6rem;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase;margin-bottom:8px;padding-left:12px}
+.side nav a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:9px;font-size:.82rem;color:#4A473E;transition:background .2s,color .2s;margin-bottom:2px}
+.side nav a:hover{background:#E8E3D4;color:var(--ink)}
+.side nav a.on{background:var(--accent);color:var(--on-accent);font-weight:600;box-shadow:0 3px 10px rgba(47,93,67,.25)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.side-foot{margin-top:auto;font-size:.66rem;color:var(--ink3);border-top:1px solid var(--line);padding-top:14px;line-height:2}
+
+/* ---------- 主区 ---------- */
+main{margin-left:236px}
+.wrap{max-width:860px;margin:0 auto;padding:0 44px}
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+.eyebrow{font-size:.62rem;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;font-weight:600;margin-bottom:12px}
+h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.35;font-weight:800;max-width:16em}
+h2{font-size:clamp(1.45rem,2.7vw,1.95rem);line-height:1.35;font-weight:800}
+.lead{color:var(--ink2);margin-top:12px;max-width:34em}
+
+/* ---------- 通用卡片/标签/表格 ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;margin-bottom:14px}
+.tag{display:inline-block;font-size:.66rem;padding:3px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-weight:600;margin-left:8px;vertical-align:middle}
+.tag.dim{background:transparent;border:1px solid var(--line);color:var(--ink3);font-weight:400}
+.tag.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* ---------- 证据分级徽章：[A]/[B]/[C·单源]/[D] 由渲染器转成这枚小标 ---------- */
+/* 语义：越实越绿、越虚越红。cursor:help + title 给出等级全称。 */
+.ev{display:inline-flex;align-items:center;justify-content:center;min-width:1.35em;height:1.4em;padding:0 4px;margin-left:3px;border-radius:5px;font-size:.6em;font-weight:800;line-height:1;letter-spacing:.02em;vertical-align:.3em;cursor:help;border:1px solid transparent;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace}
+.ev-a{background:#E6EEE8;color:#2F5D43;border-color:#C4D9CE}
+.ev-b{background:#E7EEF3;color:#3E6B8A;border-color:#C8DAE6}
+.ev-c{background:#F3EEDF;color:#8A6D1F;border-color:#E4DABE}
+.ev-d{background:#F7E9E6;color:#B5493A;border-color:#EACFC8}
+.ev-note{font-size:.68em;color:var(--ink3);margin-left:2px}
+@media print{.ev{border-color:#999!important}}
+strong{color:var(--ink)}
+table.tb{width:100%;border-collapse:collapse;margin-top:14px;font-size:.85rem;background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--line)}
+.tb th{background:#F2EEE3;text-align:left;padding:10px 12px;font-size:.78rem;color:var(--ink2);border-bottom:1px solid var(--line);white-space:nowrap}
+.tb td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+.tb tr:last-child td{border-bottom:none}
+.tb td b{color:var(--ink)}
+
+/* ---------- 天气 ---------- */
+.weather{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.wday{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 12px;text-align:center}
+.wday .d{font-size:.7rem;color:var(--ink3)}
+.wday .w{font-size:.82rem;font-weight:700;margin-top:4px}
+.wday .t{font-size:.7rem;color:var(--ink2);margin-top:3px}
+
+/* ---------- 清单（可勾选） ---------- */
+.check{list-style:none;margin-top:16px}
+.check li{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--surface);cursor:pointer;transition:background .2s}
+.check li:hover{border-color:var(--accent)}
+.check li.done{background:var(--accent-soft)}
+.check li.done .ct{text-decoration:line-through;color:var(--ink3)}
+.check input{width:22px;height:22px;margin-top:2px;accent-color:var(--accent);flex:none;cursor:pointer}
+.check .ct{font-size:.92rem}
+.check li.hot{border:2px solid var(--warn);background:var(--warn-soft)}
+.check li.hot .ct b{color:#6B5A22}
+
+/* ---------- 每日照片 ---------- */
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
+.photos.single{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}
+@media (max-width:900px){.photos{grid-template-columns:1fr}.photos.single{max-width:100%}}
+.photos figure{margin:0}
+.photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;display:block;border:1px solid var(--line)}
+.photos.single img{aspect-ratio:auto;object-fit:contain}
+.photos figcaption{font-size:.68rem;color:var(--ink3);margin-top:5px;line-height:1.5}
+
+/* ---------- 每日 ---------- */
+.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;scroll-margin-top:20px}
+.day.today{border:2px solid var(--accent);box-shadow:0 6px 24px rgba(47,93,67,.14)}
+.day-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.day-idx{font-size:.62rem;letter-spacing:.14em;color:var(--ink3)}
+.day-head h3{font-size:1.15rem;font-weight:800}
+.today-badge{display:none;font-size:.7rem;padding:4px 12px;border-radius:99px;background:var(--accent);color:var(--on-accent);font-weight:700;align-items:center;gap:6px}
+.day.today .today-badge{display:inline-flex}
+.slot{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.slot:last-of-type{border-bottom:none}
+.slot-time{font-size:.78rem;font-weight:700;color:var(--accent);padding-top:2px}
+.slot-body{font-size:.9rem;color:var(--ink2)}
+.slot-body b,.slot-body strong{color:var(--ink);font-weight:700}
+.note-row{display:flex;gap:10px;margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);font-size:.84rem;color:var(--ink2);align-items:flex-start}
+.note-row.photo{background:#EDF0E6}
+.note-row .ic{flex:none}
+.warn-line{margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--warn-soft);font-size:.84rem;color:#6B5A22}
+
+/* ---------- 数据（预算） ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px 14px}
+.stat .n{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}
+.stat .l{font-size:.72rem;color:var(--ink2);margin-top:3px}
+
+/* ---------- 提示 ---------- */
+.tips{counter-reset:tip;margin-top:16px}
+.tip{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.tip:last-child{border-bottom:none}
+.tip::before{counter-increment:tip;content:counter(tip);width:34px;height:34px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:800;font-size:.85rem;text-align:center;line-height:34px}
+.tip p{font-size:.9rem;color:var(--ink2);padding-top:5px}
+.sos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.sos{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.sos h4{font-size:.95rem;margin-bottom:8px}
+.sos p{font-size:.82rem;color:var(--ink2)}
+
+/* ---------- 工具条/返回顶部 ---------- */
+.toolbar{position:fixed;top:18px;right:20px;z-index:20;display:flex;gap:8px}
+.tbtn{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:.78rem;font-weight:700;color:var(--ink2);cursor:pointer;transition:all .2s}
+.tbtn:hover{border-color:var(--accent);color:var(--accent)}
+.backtop{position:fixed;bottom:24px;right:20px;z-index:20;width:46px;height:46px;border-radius:50%;background:var(--accent);color:var(--on-accent);border:none;font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 4px 14px rgba(47,93,67,.3)}
+.backtop.show{opacity:1;pointer-events:auto}
+
+/* ---------- 入场动效 ---------- */
+html.js section .card,html.js section .day,html.js section .tip,html.js .wday,html.js .sos{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+html.js section.in .card,html.js section.in .day,html.js section.in .tip,html.js section.in .wday,html.js section.in .sos{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html.js section .card,html.js section .day,html.js section .tip,html.js .wday,html.js .sos{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:900px){
+  html{font-size:calc(var(--fs) - 1px)}
+  body{padding-bottom:76px}
+  .side{position:static;width:auto;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px;padding:12px 14px;border-right:none;border-bottom:1px solid var(--line)}
+  .logo-sub,.side-foot{display:none}
+  .nav-group{margin:0;display:flex;gap:4px;flex-wrap:wrap}
+  .nav-label{display:block;flex:1 1 100%;font-size:.58rem;letter-spacing:.16em;color:var(--ink3);margin:2px 0 4px 2px}
+  .side nav a{padding:7px 10px;font-size:.76rem}
+  .nav-group--chips{margin-top:8px;display:grid;align-items:stretch;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:6px}
+  .nav-group--chips>.nav-label{grid-column:1/-1;margin:0 0 1px 2px}
+  .nav-group--chips a{margin:0;padding:8px 6px;font-size:.74rem;line-height:1.3;justify-content:center;text-align:center;border:1px solid var(--line);background:var(--surface);border-radius:8px}
+  .nav-group--chips a:hover{border-color:var(--accent);background:var(--accent-soft)}
+  .nav-group--chips a.on{border-color:transparent}
+  main{margin-left:0}
+  .wrap{padding:0 18px}
+  section{padding:44px 0}
+  .weather{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:1fr 1fr}
+  .sos-grid{grid-template-columns:1fr}
+  .slot{grid-template-columns:76px 1fr;gap:10px}
+  .tb{font-size:.78rem}
+  .tb th,.tb td{padding:8px 8px}
+  .toolbar{top:auto;bottom:14px;left:14px;right:auto;flex-direction:row}
+  .tbtn{padding:7px 11px;font-size:.72rem;box-shadow:0 2px 8px rgba(0,0,0,.08);background:rgba(252,251,247,.92)}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  .side,.toolbar,.backtop,.skip{display:none}
+  main{margin-left:0}
+  body{background:#fff;font-size:12pt}
+  .wrap{max-width:100%;padding:0}
+  section{padding:20px 0;page-break-inside:avoid}
+  .day{page-break-inside:avoid}
+  /* !important 必须保留：入场动效 html.js section .card{opacity:0} 特异性更高，
+     没滚动到的区块打印/导 PDF 时会整块空白（2026-09-30 CDP 实测 9/13 区块隐形） */
+  .card,.day,.tip,.wday,.sos{opacity:1!important;transform:none!important}
+  .check li.done .ct{text-decoration:none;color:var(--ink)}
+}
+
+/* ---------- 兼容层（宁波/丽水 共用，勿删） ---------- */
+b,strong{color:var(--ink)}
+.warn-line b{color:inherit}
+.tb td .intro{display:block;font-size:.78rem;color:var(--ink3);margin-top:3px;line-height:1.5}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+<div class="toolbar" role="group" aria-label="阅读工具">
+  <button class="tbtn" id="fontDec" aria-label="字号调小">A−</button>
+  <button class="tbtn" id="fontInc" aria-label="字号调大">A＋</button>
+  <button class="tbtn" id="printBtn" aria-label="打印这份路书">🖨 打印</button>
+</div>
+<aside class="side">
+  <div>
+    <div class="logo">广州 · 佛山（双城串联）<span>.</span></div>
+    <div class="logo-sub">2 天 1 晚 · 2 人 · 情侣</div>
+  </div>
+  <nav aria-label="页面导航">
+    <div class="nav-group">
+      <div class="nav-label">行程</div>
+      <a href="#overview">总览</a>
+      <a href="#drive">路程</a>
+      <a href="#day1">第 1 天 · 广州：地标与江畔</a>
+      <a href="#day2">第 2 天 · 佛山：跨城与岭南文化</a>
+      <a href="#boost">备选</a>
+    </div>
+    <div class="nav-group nav-group--chips">
+      <div class="nav-label">备忘</div>
+      <a href="#ticket">门票</a>
+      <a href="#tips">提示</a>
+      <a href="#stay">住宿</a>
+      <a href="#cost">预算</a>
+      <a href="#sos">应急</a>
+      <a href="#eat">美食</a>
+      <a href="#gift">特产</a>
+    </div>
+  </nav>
+  <div class="side-foot">
+    广州出发 · 2026-11-07 ~ 2026-11-08<br>
+    2 人 · 情侣<br>
+    信息 2026-10-25实查
+  </div>
+</aside>
+<main id="main">
+  <div class="wrap">
+        <section id="overview">
+<p class='lead'><b>情报来源</b>：本次未采集社会情报——原因见下方说明。死线不变：票价 / 营业时间 / 车次余票 / 距离车程从不取自社媒，这部分始终回官方渠道与地图核。</p>
+两天串起广州与佛山：D1 城市地标线（广州塔→沙面→陈家祠，城内驾车段 33+18 分钟实测），D2 跨城 61 分钟进佛山走岭南文化线（祖庙→岭南天地→南风古灶）。全程公共交通可完成，无必须预约项（各点预约要求未核实项已逐条标注）。本版为社会情报未采集版（理由见文首声明）。
+        </section>
+        <section id="drive">
+主路线（默认）：D1 广州市内驾车段 33 分钟/12.6 公里 + 18 分钟/3.5 公里（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>，城内段无通行费记录、本版按 0 元计（油费/停车费自理）；D2 跨城公交 61 分钟/24.1 公里/¥6/换乘 1 次 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>，或打车参考 77 分钟/26.7 公里（城市级，2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>——公交/打车两说并列，按当日实况选，不裁决；佛山市内步行 11 分钟/755 米 <span class="ev ev-a" title="证据等级 A·工具实证">A</span> + 驾车 25 分钟/5.3 公里 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>。以上全部为 2026-10-25 实测，出发日应重查（尤其跨城段周末早高峰）。
+<div class="card" data-route="primary"><h3>主路线 · 广州一天 → 跨城 → 佛山一天（双城单向）</h3><p>D1 广州塔→沙面→陈家祠（城内驾车段实测 33+18 分钟），D2 早班公交跨城 61 分钟到祖庙，佛山步行+短驾收尾。</p><p><b>途经</b>：广州塔 → 沙面公园 → 陈家祠广场 → 祖庙 → 岭南天地 → 南风古灶</p><p><b>什么情况走它</b>：2 天 1 晚、双城都想碰一下——默认走这条</p></div>
+<div class="card" data-nearby="1" data-nearby-count="2"><h3>沿途顺道可看（2 处）</h3><table class="tb"><tr><th>点</th><th>哪一站附近</th><th>距离</th><th>说明</th></tr><tr><td>永庆坊</td><td>沙面公园以东约 2 公里</td><td>—</td><td>老城改造街区，顺路可去；开放状态未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——高德查当日营业中再决定。</td></tr><tr><td>梁园</td><td>祖庙以北约 1.5 公里</td><td>—</td><td>岭南四大名园之一，顺路可加；开放时间未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——官方渠道自查。</td></tr></table></div>
+<div class="card" data-preferences="1"><h3>按你的偏好排的（你自报，未做推断）</h3><ul><li><b>节奏</b>：balanced（用户原话：随便走走，不赶）</li><li><b>兴趣</b>：城市地标、岭南文化</li></ul></div>
+        </section>
+        <section id="day1">
+      <div class="day">
+        <div class="day-head">
+          <span class="day-idx">DAY 1 / 2026-11-07</span>
+          <h3>D1 · 广州塔 → 沙面 → 陈家祠</h3>
+          <span class="today-badge">今天</span>
+        </div>
+        <div class="photos single">
+          <figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzAwIiBmb250LWZhbWlseT0iUGluZ0ZhbmcgU0MsIE1pY3Jvc29mdCBZYUhlaSwgc2Fucy1zZXJpZiI+CiAgPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmNGY4ZmIiLz4KICA8dGV4dCB4PSIyMCIgeT0iMzAiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxYzI3MzMiPkQxIOW5v+W3nuWKqOe6v+ekuuaEj++8iOW5v+W3nuWhlCDihpIg5rKZ6Z2i5YWs5ZutIOKGkiDpmYjlrrbnpaDlub/lnLrvvIk8L3RleHQ+CiAgPHRleHQgeD0iMjAiIHk9IjUwIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNWI2YjdhIj7npLrmhI/pnZ7nrYnmr5Qgwrcg6L2m56iL5pWw5o2u77ya6auY5b636am+6L2m5a6e6YeHIDIwMjYtMTAtMjUgW0FdIMK3IOacrOWbvuS4uuekuuaEj+Wbvu+8jOmdnuWunuaLjTwvdGV4dD4KICA8IS0tIOePoOaxnyAtLT4KICA8cGF0aCBkPSJNMjAsMTUwIEMxODAsMTMwIDQyMCwxNzUgNjIwLDE1MCIgc3Ryb2tlPSIjOWVjN2U4IiBzdHJva2Utd2lkdGg9IjI2IiBmaWxsPSJub25lIiBvcGFjaXR5PSIwLjYiLz4KICA8dGV4dCB4PSI1MDAiIHk9IjE2NSIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzNmN2JiMCI+54+g44CA5rGfPC90ZXh0PgogIDwhLS0g5Zyw5qCH54K5IC0tPgogIDxnIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMxYzI3MzMiPgogICAgPGNpcmNsZSBjeD0iOTAiIGN5PSIxMTAiIHI9IjgiIGZpbGw9IiNlOGIwNGIiLz48dGV4dCB4PSI2MCIgeT0iOTAiPuW5v+W3nuWhlDwvdGV4dD4KICAgIDxjaXJjbGUgY3g9IjMwMCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0iIzVhYTE3ZiIvPjx0ZXh0IHg9IjI3MCIgeT0iMTAwIj7mspnpnaLlhazlm608L3RleHQ+CiAgICA8Y2lyY2xlIGN4PSI1MjAiIGN5PSIxMDUiIHI9IjgiIGZpbGw9IiNiMDc2M2MiLz48dGV4dCB4PSI0ODAiIHk9Ijg1Ij7pmYjlrrbnpaDlub/lnLo8L3RleHQ+CiAgPC9nPgogIDwhLS0g5Yqo57q/566t5aS0IC0tPgogIDxnIHN0cm9rZT0iI2MwMzkyYiIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBtYXJrZXItZW5kPSJ1cmwoI2FycikiPgogICAgPHBhdGggZD0iTTEwMCwxMTUgUTIwMCw5NSAyODgsMTE2Ii8+CiAgICA8cGF0aCBkPSJNMzEyLDEyMCBRNDIwLDExMCA1MDgsMTA2Ii8+CiAgPC9nPgogIDxkZWZzPgogICAgPG1hcmtlciBpZD0iYXJyIiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI4IiByZWZYPSI2IiByZWZZPSIzIiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCwwIEw2LDMgTDAsNiB6IiBmaWxsPSIjYzAzOTJiIi8+CiAgICA8L21hcmtlcj4KICA8L2RlZnM+CiAgPCEtLSDmrrXmoIfms6ggLS0+CiAgPGcgZm9udC1zaXplPSIxMiIgZmlsbD0iI2MwMzkyYiI+CiAgICA8dGV4dCB4PSIxNTAiIHk9IjgwIj4zMyDliIbpkp8gLyAxMi42IOWFrOmHjCBbQV08L3RleHQ+CiAgICA8dGV4dCB4PSIzNzAiIHk9IjgwIj4xOCDliIbpkp8gLyAzLjUg5YWs6YeMIFtBXTwvdGV4dD4KICA8L2c+CiAgPCEtLSDmjIfljJfpkoggLS0+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTk2LDI2MikiPgogICAgPGNpcmNsZSByPSIxNiIgZmlsbD0iI2ZmZiIgc3Ryb2tlPSIjOGFhMGI1Ii8+CiAgICA8cGF0aCBkPSJNMCwtMTEgTDQsNiBMMCwyIEwtNCw2IHoiIGZpbGw9IiNjMDM5MmIiLz4KICAgIDx0ZXh0IHg9Ii00IiB5PSIxNCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzFjMjczMyI+TjwvdGV4dD4KICA8L2c+Cjwvc3ZnPgo=" alt="D1 广州动线示意（广州塔→沙面→陈家祠；示意图，本地绘制非实拍，车程数据 2026-10-25 高德实采）[A]" loading="lazy"><figcaption>D1 广州动线示意（广州塔→沙面→陈家祠；示意图，本地绘制非实拍，车程数据 2026-10-25 高德实采）<span class="ev ev-a" title="证据等级 A·工具实证">A</span></figcaption></figure>
+        </div>
+        <div class="slot">
+          <div class="slot-time">08:00</div>
+          <div class="slot-body">早餐：广州塔周边早餐店未采集 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前在高德/点评搜「广州塔 早餐」，选营业中的店；地铁站内便利店是保底。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">10:00</div>
+          <div class="slot-body">广州塔。高德评分 4.8，地址阅江西路222号（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。登塔票分楼层档位，价格未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前在官方小程序「广州塔」按 11/7 日期实查，注意不同档位含不含观景平台。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">12:30</div>
+          <div class="slot-body">午餐：广州塔→沙面途中解决。自驾段车程 33 分钟 / 12.6 公里（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>；具体午市店未采集 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——在高德搜「沙面 午餐」比价。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">13:30</div>
+          <div class="slot-body">沙面公园。高德评分 4.7，地址沙面南街3号（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。欧陆建筑群+江畔步道，以散步为主，正午日头大注意遮阳。免费开放；园内具体展览开放时间未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——到园后看入口公告。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">16:15</div>
+          <div class="slot-body">陈家祠广场。驾车段车程 18 分钟 / 3.5 公里（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。广场条目评分 3.7（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>；注意本条采集到的是「陈家祠广场-陈氏书院广场」，陈家祠（书院本体）的开放时间与门票未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前查官方公众号「广州陈家祠」，按 11/7（周六）当日时段确认。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">18:15</div>
+          <div class="slot-body">晚餐：陈家祠一带（中山七/八路上盖）未采集 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——点评搜「陈家祠 晚餐」按 11/7 时段实查。饭后回酒店，住宿见「住」板块。</div>
+        </div>
+        <div class="note-row"><span class="ic">🚇</span><div>今日交通汇总：广州塔→沙面 12.6 公里/33 分钟；沙面→陈家祠广场 3.5 公里/18 分钟。均为高德驾车路线，查询于 2026-10-25 17:55 查·高德 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>。若改地铁，两段时长都按地铁重新查——驾车数字不能平移。</div></div>
+        <div class="note-row"><span class="ic">🍜</span><div>广州塔与沙面一带餐饮密集，但本版只采到景点数据，未核实具体店与人均 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前用高德/点评按 11/7 时段补。</div></div>
+        <div class="warn-line">广州塔登塔分档售票且周末排队长：票价未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>（官方小程序自查），排队按 30-60 分钟预留【估算】。</div>
+      </div>
+        </section>
+        <section id="day2">
+      <div class="day">
+        <div class="day-head">
+          <span class="day-idx">DAY 2 / 2026-11-08</span>
+          <h3>D2 · 跨城 → 祖庙 → 岭南天地 → 南风古灶</h3>
+          <span class="today-badge">今天</span>
+        </div>
+        <div class="photos single">
+          <figure><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgMzAwIiBmb250LWZhbWlseT0iUGluZ0ZhbmcgU0MsIE1pY3Jvc29mdCBZYUhlaSwgc2Fucy1zZXJpZiI+CiAgPHJlY3Qgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmNGY4ZmIiLz4KICA8dGV4dCB4PSIyMCIgeT0iMzAiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI2MDAiIGZpbGw9IiMxYzI3MzMiPkQyIOi3qOWfjuWKqOe6v+ekuuaEj++8iOW5v+W3niDihpIg5L2b5bGxIOKGkiDljZfpo47lj6TngbbvvIk8L3RleHQ+CiAgPHRleHQgeD0iMjAiIHk9IjUwIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNWI2YjdhIj7npLrmhI/pnZ7nrYnmr5Qgwrcg6L2m56iL5pWw5o2u77ya6auY5b635YWs5LqkL+mpvui9pi/mraXooYzlrp7ph4cgMjAyNi0xMC0yNSBbQV0gwrcg5pys5Zu+5Li656S65oSP5Zu+77yM6Z2e5a6e5ouNPC90ZXh0PgogIDwhLS0g5bm/5L2b5YiG55WMIC0tPgogIDxsaW5lIHgxPSIzMjAiIHkxPSI3MCIgeDI9IjMyMCIgeTI9IjI3MCIgc3Ryb2tlPSIjOGFhMGI1IiBzdHJva2UtZGFzaGFycmF5PSI2IDUiIHN0cm9rZS13aWR0aD0iMiIvPgogIDx0ZXh0IHg9IjE1MCIgeT0iMjcwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNWI2YjdhIj7lub/lt548L3RleHQ+CiAgPHRleHQgeD0iNDgwIiB5PSIyNzAiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM1YjZiN2EiPuS9m+WxsTwvdGV4dD4KICA8IS0tIOWcsOagh+eCuSAtLT4KICA8ZyBmb250LXNpemU9IjEzIiBmaWxsPSIjMWMyNzMzIj4KICAgIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjExMCIgcj0iOCIgZmlsbD0iIzhhYTBiNSIvPjx0ZXh0IHg9IjgwIiB5PSI5MCI+6ZmI5a6256Wg5LiA5bim77yI5Ye65Y+R77yJPC90ZXh0PgogICAgPGNpcmNsZSBjeD0iNDAwIiBjeT0iMTEwIiByPSI4IiBmaWxsPSIjZThiMDRiIi8+PHRleHQgeD0iMzc1IiB5PSI5MCI+56WW5bqZPC90ZXh0PgogICAgPGNpcmNsZSBjeD0iNDgwIiBjeT0iMTYwIiByPSI4IiBmaWxsPSIjNWFhMTdmIi8+PHRleHQgeD0iNDU1IiB5PSIxODUiPuWyreWNl+WkqeWcsDwvdGV4dD4KICAgIDxjaXJjbGUgY3g9IjU2MCIgY3k9IjIyMCIgcj0iOCIgZmlsbD0iI2IwNzYzYyIvPjx0ZXh0IHg9IjUzMCIgeT0iMjQ1Ij7ljZfpo47lj6TngbY8L3RleHQ+CiAgPC9nPgogIDwhLS0g5Yqo57q/IC0tPgogIDxnIHN0cm9rZT0iI2MwMzkyYiIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBtYXJrZXItZW5kPSJ1cmwoI2FycjIpIj4KICAgIDxwYXRoIGQ9Ik0xMzAsMTEwIEwzOTIsMTEwIi8+CiAgICA8cGF0aCBkPSJNNDA4LDExNiBMNDcyLDE1NSIvPgogICAgPHBhdGggZD0iTTQ5MCwxNjUgTDU1MiwyMTUiLz4KICA8L2c+CiAgPGRlZnM+CiAgICA8bWFya2VyIGlkPSJhcnIyIiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI4IiByZWZYPSI2IiByZWZZPSIzIiBvcmllbnQ9ImF1dG8iPgogICAgICA8cGF0aCBkPSJNMCwwIEw2LDMgTDAsNiB6IiBmaWxsPSIjYzAzOTJiIi8+CiAgICA8L21hcmtlcj4KICA8L2RlZnM+CiAgPGcgZm9udC1zaXplPSIxMiIgZmlsbD0iI2MwMzkyYiI+CiAgICA8dGV4dCB4PSIxNzAiIHk9IjEwMCI+5YWs5LqkIDYxIOWIhumSnyAvIDI0LjEg5YWs6YeMIC8gwqU2IC8g5o2i5LmYIDEg5qyhIFtBXTwvdGV4dD4KICAgIDx0ZXh0IHg9IjM5NSIgeT0iMTQ1IiB0cmFuc2Zvcm09InJvdGF0ZSgzOCAzOTUgMTQ1KSI+5q2l6KGMIDExIOWIhumSnzwvdGV4dD4KICAgIDx0ZXh0IHg9IjQ4MCIgeT0iMjAwIj7pqb7ovaYgMjUg5YiG6ZKfIC8gNS4zIOWFrOmHjCBbQV08L3RleHQ+CiAgPC9nPgogIDwhLS0g5oyH5YyX6ZKIIC0tPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDU5NiwyNjIpIj4KICAgIDxjaXJjbGUgcj0iMTYiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzhhYTBiNSIvPgogICAgPHBhdGggZD0iTTAsLTExIEw0LDYgTDAsMiBMLTQsNiB6IiBmaWxsPSIjYzAzOTJiIi8+CiAgICA8dGV4dCB4PSItNCIgeT0iMTQiIGZvbnQtc2l6ZT0iMTAiIGZpbGw9IiMxYzI3MzMiPk48L3RleHQ+CiAgPC9nPgo8L3N2Zz4K" alt="D2 跨城动线示意（广→佛公交 61 分钟实测；示意图，本地绘制非实拍）[A]" loading="lazy"><figcaption>D2 跨城动线示意（广→佛公交 61 分钟实测；示意图，本地绘制非实拍）<span class="ev ev-a" title="证据等级 A·工具实证">A</span></figcaption></figure>
+        </div>
+        <div class="slot">
+          <div class="slot-time">08:00</div>
+          <div class="slot-body">早餐：酒店周边解决，未采集 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——高德搜「酒店名 早餐」或地铁站便利店。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">09:00</div>
+          <div class="slot-body">跨城：陈家祠一带 → 祖庙，公交 61 分钟 / 24.1 公里 / 票价 ¥6 / 换乘 1 次（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。备选打车：按城市级驾车参考 77 分钟 / 26.7 公里（广州市→佛山市，2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>，费用以打车平台实价为准 <span class="ev ev-d" title="证据等级 D·未核实">D</span>。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">10:00</div>
+          <div class="slot-body">祖庙。高德评分 4.9，地址祖庙路21号（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。含黄飞鸿纪念馆；门票未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前在官方公众号「佛山市祖庙博物馆」按 11/8 实查并确认是否需预约。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">12:30</div>
+          <div class="slot-body">步行去岭南天地：11 分钟 / 755 米（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。午餐在街区内解决，评分 4.8（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>；具体店与人均未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——点评按 11/8 时段实查。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">15:10</div>
+          <div class="slot-body">南风古灶。驾车段车程 25 分钟 / 5.3 公里（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。高德评分 4.7（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>；门票与陶艺体验收费未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——官方公众号「南风古灶」自查，体验类项目注意末场时间。</div>
+        </div>
+        <div class="slot">
+          <div class="slot-time">17:30</div>
+          <div class="slot-body">晚餐+返程：南风古灶一带晚餐未采集 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——高德按返程动线搜「顺路 晚餐」。返程广州按跨城段同一口径重查（公交/打车双模式，2026-10-25 17:55 查·高德 已实测过城市级口径）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。</div>
+        </div>
+        <div class="note-row"><span class="ic">🚇</span><div>今日交通汇总：跨城公交 24.1 公里/61 分钟/¥6/换乘 1 次（高德，2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>；祖庙→岭南天地步行 755 米/11 分钟 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>；岭南天地→南风古灶 5.3 公里/25 分钟 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>。跨城段是本示例的核心数据点，出发日早 8 点前再刷一次——周末早高峰会变。</div></div>
+        <div class="note-row"><span class="ic">⚠️</span><div>打车备选按城市级口径 77 分钟/26.7 公里（广州市→佛山市，2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>预留；费用以打车平台实价为准 <span class="ev ev-d" title="证据等级 D·未核实">D</span>。</div></div>
+        <div class="warn-line">南风古灶体验类项目（陶艺）常有末场限制，时间未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——到园先看当日场次公告。</div>
+      </div>
+        </section>
+        <section id="boost">
+<div class="card" data-route="alternatives" data-alt-count="2"><h3>备选路线（2 条）</h3><table class="tb"><tr><th>路线</th><th>途经</th><th>什么情况走它</th><th>代价 / 依据</th></tr><tr><td>地铁广佛线直达版</td><td>—</td><td>—</td><td>—</td></tr><tr><td>反向版（先佛后广）</td><td>—</td><td>—</td><td>—</td></tr></table></div>
+备选一：地铁广佛线直达版——D1 只保广州塔+沙面，D2 早乘广佛线过佛山。少换乘更稳；代价：陈家祠被挤掉，且广佛线末班时间未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>（广州地铁官方 App 自查）。备选二：反向版（先佛后广）——能看到广州塔夜景；代价：D1 拖行李跨城、D2 返程撞周日晚高峰，跨城段按 77 分钟预留（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。
+        </section>
+        <section id="ticket">
+本版未核实任何门票价格（多城示例聚焦交通与留痕链路）：广州塔登塔票 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——官方小程序「广州塔」；陈家祠（书院）<span class="ev ev-d" title="证据等级 D·未核实">D</span>——公众号「广州陈家祠」；祖庙 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——公众号「佛山市祖庙博物馆」；南风古灶 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——公众号「南风古灶」。以上均按出行日期（11/7-11/8）实查，注意比对好日期档。已核实的票价只有跨城公交 ¥6（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>。
+        </section>
+        <section id="tips">
+避雷三条（真实场景+应对）：① 广州塔周末排队 30-60 分钟【估算】——要么开园即上，要么改傍晚场；票价档位多 <span class="ev ev-d" title="证据等级 D·未核实">D</span>，小程序里逐档看清楚再买。② 沙面正午日头大——把拍照排在午后前段，树荫侧在江堤一带。③ 跨城公交 61 分钟是实测值但周末早高峰会漂——预留到 80 分钟【估算】，迟到不如早到。
+        </section>
+        <section id="stay">
+住宿：D1 晚宿广州，建议陈家祠/西门口地铁站沿线（D2 跨城出发点近）。房价未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——出发前在携程/美团按 11/7 一晚实查，优先可免费取消；同店多平台比价，价差常见一成以上。
+        </section>
+        <section id="cost">
+预算表（两人合计，本版只计已核实项）：跨城公交 ¥6/人 × 2 人 × 2 趟（去程 2026-10-25 查·高德 <span class="ev ev-a" title="证据等级 A·工具实证">A</span>，返程按同口径【估算】）≈ ¥24；门票/餐饮/住宿均未核实 <span class="ev ev-d" title="证据等级 D·未核实">D</span>，不编数——按「官方渠道查到多少记多少」累加。本版预算参考上限 ¥500（两人，不含住宿）。
+        </section>
+        <section id="sos">
+应急三条：① 跨城公交赶不上/停运 → 打车按 77 分钟口径（2026-10-25 17:55 查·高德）<span class="ev ev-a" title="证据等级 A·工具实证">A</span>，费用以平台实价为准 <span class="ev ev-d" title="证据等级 D·未核实">D</span>。② 周日暴雨 → 祖庙与岭南天地均有大片室内/骑楼空间，把南风古灶（户外为主）与它对调。③ 广州塔票约满 → 改沙面+永庆坊一线，夜景位换成沙面江堤（免费）。
+        </section>
+        <section id="eat">
+美食清单：本版未采集到已核实的店（多城示例聚焦交通链路）。四顿正餐全部 <span class="ev ev-d" title="证据等级 D·未核实">D</span> 并给出口径：D1 午（沙面，高德/点评搜「沙面 午餐」）、D1 晚（陈家祠一带，点评「陈家祠 晚餐」）、D2 午（岭南天地街区内，点评按 11/8 时段）、D2 晚（返程顺路，高德搜「顺路 晚餐」）。
+        </section>
+        <section id="gift">
+特产：本版未核实任何特产价格与购买点 <span class="ev ev-d" title="证据等级 D·未核实">D</span>——佛山盲公饼/石湾公仔可在岭南天地及景区商店比价（景区出口 vs 市区超市常差三成【估算】）；认准产地直供，别买天价礼盒。
+        </section>
+<footer style="padding:64px 0 80px;text-align:center">
+  <h2>广州 · 佛山（双城串联）路书 · 城市地标 → 岭南文化（跨城动线示范）</h2>
+  <p>广州出发 · 2026-11-07 ~ 2026-11-08 · 2 人 · 情侣<br>本地单文件 · 无外部依赖 · 断网可打开<br>信息 2026-10-25联网实查 · 未核实项已标注</p>
+  <p>配图：本版各 day 的 photos 为空数组——多城示例聚焦数据链路（POI/路线/留痕/闸门），配图从简，不是遗漏。；图源 本版未配图<br>本版无自绘示意图。</p>
+  <p style="margin-top:18px;font-weight:700">方案仅供参考——安全和开心，才是最重要的。🌕</p>
+</footer>
+  </div>
+</main>
+<button class="backtop" id="backtop" aria-label="回到顶部">↑</button>
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 1. 当日模式：按今天日期高亮对应行程日 ---------- */
+  var TRIP = { "2026-11-07":"day1", "2026-11-08":"day2" };
+  function todayStr(){
+    var d = new Date();
+    var m = ("0"+(d.getMonth()+1)).slice(-2), day = ("0"+d.getDate()).slice(-2);
+    return d.getFullYear()+"-"+m+"-"+day;
+  }
+  var todayId = TRIP[todayStr()];
+  if (todayId){
+    var sec = document.getElementById(todayId);
+    if (sec){
+      var card = sec.querySelector(".day");
+      if (card) card.classList.add("today");
+      var navA = document.querySelector('.side nav a[href="#'+todayId+'"]');
+      if (navA) navA.innerHTML = '<span class="dot"></span>' + navA.textContent;
+      setTimeout(function(){ sec.scrollIntoView({behavior:"smooth", block:"start"}); }, 600);
+    }
+  } else {
+    var prep = document.getElementById("prepCard");
+    if (prep && todayStr() < "2026-11-07") prep.style.border = "2px solid var(--accent)";
+  }
+
+  /* ---------- 2. 字号三档（记忆） ---------- */
+  var FONTS = ["17px","19px","21px"];
+  var fi = 1;
+  try { fi = Math.max(0, Math.min(2, parseInt(localStorage.getItem("gf_font")||"1",10)||0)); } catch(e){}
+  function applyFont(){ document.documentElement.style.setProperty("--fs", FONTS[fi]); }
+  applyFont();
+  function saveFont(){ try{ localStorage.setItem("gf_font", String(fi)); }catch(e){} }
+  document.getElementById("fontInc").addEventListener("click", function(){ if(fi<2){fi++;applyFont();saveFont();} });
+  document.getElementById("fontDec").addEventListener("click", function(){ if(fi>0){fi--;applyFont();saveFont();} });
+
+  /* ---------- 3. 打印 ---------- */
+  document.getElementById("printBtn").addEventListener("click", function(){ window.print(); });
+
+  /* ---------- 4. 勾选清单（记忆） ---------- */
+  document.querySelectorAll(".check li").forEach(function(li, i){
+    var box = li.querySelector("input");
+    var key = "gf_chk_" + box.id;
+    try { box.checked = localStorage.getItem(key) === "1"; } catch(e){}
+    if (box.checked) li.classList.add("done");
+    li.addEventListener("click", function(ev){
+      if (ev.target.tagName !== "INPUT"){ box.checked = !box.checked; }
+      li.classList.toggle("done", box.checked);
+      try{ localStorage.setItem(key, box.checked ? "1" : "0"); }catch(e){}
+    });
+  });
+
+  /* ---------- 5. 滚动监听：侧栏高亮 + 入场动效 ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".side nav a"));
+  var secs = Array.prototype.slice.call(document.querySelectorAll("main section"));
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){
+        en.target.classList.add("in");
+        var id = en.target.id;
+        navLinks.forEach(function(a){ a.classList.toggle("on", a.getAttribute("href") === "#"+id); });
+      }
+    });
+  }, { rootMargin: "-25% 0px -35% 0px" });
+  secs.forEach(function(s){ io.observe(s); });
+
+  /* ---------- 6. 返回顶部 ---------- */
+  var bt = document.getElementById("backtop");
+  window.addEventListener("scroll", function(){
+    bt.classList.toggle("show", window.scrollY > 600);
+  }, { passive:true });
+  bt.addEventListener("click", function(){ window.scrollTo({ top:0, behavior:"smooth" }); });
+})();
+</script>
+<script>
+/* 兜底：若上方脚本报错导致入场动效未初始化，3 秒后强制显示全部内容 */
+setTimeout(function(){
+  if (!document.querySelector('main section.in')){
+    document.querySelectorAll('main section').forEach(function(s){ s.classList.add('in'); });
+  }
+}, 3000);
+</script>
+</body>
+</html>

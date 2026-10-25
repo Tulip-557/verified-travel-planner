@@ -1,0 +1,109 @@
+{
+  "provider": "amap",
+  "generated_at": "2026-10-25T09:53:10.551718+00:00",
+  "call_count": 1,
+  "calls": [
+    {
+      "endpoint": "/v3/place/text",
+      "params": {
+        "keywords": "沙面公园",
+        "offset": "1",
+        "page": "1",
+        "extensions": "all",
+        "city": "广州",
+        "citylimit": "true"
+      },
+      "fetched_at": "2026-10-25T09:53:10.551718+00:00",
+      "response": {
+        "suggestion": {
+          "keywords": [],
+          "cities": []
+        },
+        "count": "58",
+        "infocode": "10000",
+        "pois": [
+          {
+            "parent": "B0FFFAJYVI",
+            "pcode": "440000",
+            "keytag": "滨江公园",
+            "type": "风景名胜;公园广场;公园",
+            "photos": [
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/3438767c5ef9ee75897653951fdd1a39"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/559a3b53a310b38d66d33fd4"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/8c739ce43cf02dd4b4169c111e1ee8f6"
+              }
+            ],
+            "building": [],
+            "typecode": "110101",
+            "poiweight": [],
+            "citycode": "020",
+            "adname": "荔湾区",
+            "children": [],
+            "featured_reviews_remake": [],
+            "tel": "020-81217557",
+            "id": "B00140CEZD",
+            "tag": [],
+            "entr_location": "113.244785,23.106074",
+            "adcode": "440103",
+            "pname": "广东省",
+            "biz_type": "tour",
+            "cityname": "广州市",
+            "postcode": [],
+            "business_area": "沙面",
+            "childtype": "301",
+            "atag": [],
+            "name": "沙面公园",
+            "shopid": [],
+            "favorite_num": [],
+            "navi_poiid": "F49F011042_242348",
+            "distance": [],
+            "importance": [],
+            "biz_ext": {
+              "cost": [],
+              "opentime2": "周一至周日 00:00-24:00",
+              "rating": "4.7",
+              "open_time": "24小时营业",
+              "ticket_ordering": "0"
+            },
+            "recommend": "3",
+            "discount_num": "0",
+            "gridcode": "3413512921",
+            "shopinfo": "2",
+            "alias": [],
+            "event": [],
+            "indoor_map": "0",
+            "email": [],
+            "timestamp": "2026-10-25 06:40:05",
+            "website": [],
+            "address": "沙面南街3号",
+            "space_num": [],
+            "match": "0",
+            "indoor_data": {
+              "cmsid": [],
+              "truefloor": [],
+              "cpid": [],
+              "floor": []
+            },
+            "exit_location": [],
+            "location": "113.244807,23.105666",
+            "groupbuy_num": "0",
+            "featured_reviews": []
+          }
+        ],
+        "status": "1",
+        "info": "OK"
+      }
+    }
+  ]
+}

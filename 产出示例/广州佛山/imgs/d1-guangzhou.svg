@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="640" height="300" fill="#f4f8fb"/>
+  <text x="20" y="30" font-size="18" font-weight="600" fill="#1c2733">D1 广州动线示意（广州塔 → 沙面公园 → 陈家祠广场）</text>
+  <text x="20" y="50" font-size="12" fill="#5b6b7a">示意非等比 · 车程数据：高德驾车实采 2026-10-25 [A] · 本图为示意图，非实拍</text>
+  <!-- 珠江 -->
+  <path d="M20,150 C180,130 420,175 620,150" stroke="#9ec7e8" stroke-width="26" fill="none" opacity="0.6"/>
+  <text x="500" y="165" font-size="12" fill="#3f7bb0">珠　江</text>
+  <!-- 地标点 -->
+  <g font-size="13" fill="#1c2733">
+    <circle cx="90" cy="110" r="8" fill="#e8b04b"/><text x="60" y="90">广州塔</text>
+    <circle cx="300" cy="120" r="8" fill="#5aa17f"/><text x="270" y="100">沙面公园</text>
+    <circle cx="520" cy="105" r="8" fill="#b0763c"/><text x="480" y="85">陈家祠广场</text>
+  </g>
+  <!-- 动线箭头 -->
+  <g stroke="#c0392b" stroke-width="3" fill="none" marker-end="url(#arr)">
+    <path d="M100,115 Q200,95 288,116"/>
+    <path d="M312,120 Q420,110 508,106"/>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+  </defs>
+  <!-- 段标注 -->
+  <g font-size="12" fill="#c0392b">
+    <text x="150" y="80">33 分钟 / 12.6 公里 [A]</text>
+    <text x="370" y="80">18 分钟 / 3.5 公里 [A]</text>
+  </g>
+  <!-- 指北针 -->
+  <g transform="translate(596,262)">
+    <circle r="16" fill="#fff" stroke="#8aa0b5"/>
+    <path d="M0,-11 L4,6 L0,2 L-4,6 z" fill="#c0392b"/>
+    <text x="-4" y="14" font-size="10" fill="#1c2733">N</text>
+  </g>
+</svg>

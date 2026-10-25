@@ -1,0 +1,105 @@
+{
+  "provider": "amap",
+  "generated_at": "2026-10-25T09:53:11.984755+00:00",
+  "call_count": 1,
+  "calls": [
+    {
+      "endpoint": "/v3/place/text",
+      "params": {
+        "keywords": "岭南天地",
+        "offset": "1",
+        "page": "1",
+        "extensions": "all",
+        "city": "佛山",
+        "citylimit": "true"
+      },
+      "fetched_at": "2026-10-25T09:53:11.984755+00:00",
+      "response": {
+        "suggestion": {
+          "keywords": [],
+          "cities": []
+        },
+        "count": "97",
+        "infocode": "10000",
+        "pois": [
+          {
+            "parent": [],
+            "pcode": "440000",
+            "keytag": "商场",
+            "type": "购物服务;购物相关场所;购物相关场所",
+            "photos": [
+              {
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/90a17b4ebee96824cbe0b1d7ed4d50de"
+              },
+              {
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/d2eb1d9d59f143121bf464788f8ecdfe"
+              },
+              {
+                "title": [],
+                "url": "https://store.is.autonavi.com/showpic/be01af7a44bc879f2e0de8941944ebc5"
+              }
+            ],
+            "building": [],
+            "typecode": "060000",
+            "poiweight": [],
+            "citycode": "0757",
+            "adname": "禅城区",
+            "children": [],
+            "featured_reviews_remake": [],
+            "tel": "0757-82552606",
+            "id": "B02F507KKS",
+            "tag": [],
+            "entr_location": "113.11479,23.028991",
+            "adcode": "440604",
+            "pname": "广东省",
+            "biz_type": [],
+            "cityname": "佛山市",
+            "postcode": [],
+            "business_area": "祖庙",
+            "childtype": [],
+            "atag": [],
+            "name": "佛山岭南天地",
+            "shopid": [],
+            "favorite_num": [],
+            "navi_poiid": "F49F012041_62469",
+            "distance": [],
+            "importance": [],
+            "biz_ext": {
+              "cost": [],
+              "opentime2": "周一至周日 00:00-24:00；具体营业时间以当天开放情况为准。",
+              "rating": "4.8",
+              "open_time": "24小时营业"
+            },
+            "recommend": "3",
+            "discount_num": "0",
+            "gridcode": "3413403910",
+            "shopinfo": "0",
+            "alias": "岭南天地商业中心|岭南新天地",
+            "event": [],
+            "indoor_map": "0",
+            "email": [],
+            "timestamp": "2026-10-25 13:53:03",
+            "website": [],
+            "address": "祖庙大街2号",
+            "space_num": [],
+            "match": "0",
+            "indoor_data": {
+              "cmsid": [],
+              "truefloor": [],
+              "cpid": [],
+              "floor": []
+            },
+            "exit_location": [],
+            "location": "113.116275,23.029927",
+            "groupbuy_num": "0",
+            "featured_reviews": []
+          }
+        ],
+        "status": "1",
+        "info": "OK"
+      }
+    }
+  ]
+}

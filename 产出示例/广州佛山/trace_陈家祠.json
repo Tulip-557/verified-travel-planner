@@ -1,0 +1,109 @@
+{
+  "provider": "amap",
+  "generated_at": "2026-10-25T09:54:05.128621+00:00",
+  "call_count": 1,
+  "calls": [
+    {
+      "endpoint": "/v3/place/text",
+      "params": {
+        "keywords": "陈家祠书院",
+        "offset": "1",
+        "page": "1",
+        "extensions": "all",
+        "city": "广州",
+        "citylimit": "true"
+      },
+      "fetched_at": "2026-10-25T09:54:05.128621+00:00",
+      "response": {
+        "suggestion": {
+          "keywords": [],
+          "cities": []
+        },
+        "count": "8",
+        "infocode": "10000",
+        "pois": [
+          {
+            "parent": "B00140H884",
+            "pcode": "440000",
+            "keytag": "广场",
+            "type": "风景名胜;公园广场;城市广场",
+            "photos": [
+              {
+                "provider": [],
+                "title": [],
+                "url": "https://store.is.autonavi.com/showpic/aa8fd21cdacc114c0000006303998826?type=pic"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "https://aos-comment.amap.com/B0FFLO8DZH/comment/6a9531448f127955bb361c77b1c12078_2048_2048_80.jpg"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "https://aos-comment.amap.com/B0FFLO8DZH/comment/3d94c935ffaeb4bed5c075bfc1271f16_2048_2048_80.jpg"
+              }
+            ],
+            "building": [],
+            "typecode": "110105",
+            "poiweight": [],
+            "citycode": "020",
+            "adname": "荔湾区",
+            "children": [],
+            "featured_reviews_remake": [],
+            "tel": "020-81817371",
+            "id": "B0FFLO8DZH",
+            "tag": [],
+            "entr_location": "113.244562,23.126927",
+            "adcode": "440103",
+            "pname": "广东省",
+            "biz_type": "tour",
+            "cityname": "广州市",
+            "postcode": [],
+            "business_area": "西关",
+            "childtype": "301",
+            "atag": [],
+            "name": "陈家祠广场-陈氏书院广场",
+            "shopid": [],
+            "favorite_num": [],
+            "navi_poiid": [],
+            "distance": [],
+            "importance": [],
+            "biz_ext": {
+              "cost": [],
+              "opentime2": "周一 08:30-17:30；周三至周日 08:30-17:30,具体以官方通知为准",
+              "rating": "3.7",
+              "open_time": "08:30-17:30",
+              "ticket_ordering": "0"
+            },
+            "recommend": "0",
+            "discount_num": "0",
+            "gridcode": "3413515901",
+            "shopinfo": "2",
+            "alias": [],
+            "event": [],
+            "indoor_map": "0",
+            "email": [],
+            "timestamp": "2026-10-25 00:16:04",
+            "website": [],
+            "address": "中山七路恩龙里34号(近陈家祠地铁站D出口)",
+            "space_num": [],
+            "match": "0",
+            "indoor_data": {
+              "cmsid": [],
+              "truefloor": [],
+              "cpid": [],
+              "floor": []
+            },
+            "exit_location": [],
+            "location": "113.244269,23.126619",
+            "groupbuy_num": "0",
+            "featured_reviews": []
+          }
+        ],
+        "status": "1",
+        "info": "OK"
+      }
+    }
+  ]
+}

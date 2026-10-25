@@ -1,0 +1,44 @@
+{
+ "origin": "广州",
+ "destination": "佛山",
+ "origin_city": "广州",
+ "destination_city": "佛山",
+ "start_date": "2026-11-07",
+ "end_date": "2026-11-08",
+ "travelers": 2,
+ "budget_cny": 500,
+ "budget_scope": "TOTAL",
+ "style": "balanced",
+ "must_visit": [
+  {
+   "name": "广州塔",
+   "priority": "IMPORTANT"
+  },
+  {
+   "name": "祖庙",
+   "priority": "IMPORTANT"
+  }
+ ],
+ "excluded_places": [],
+ "mobility": {
+  "level": "MODERATE",
+  "max_walking_km_per_day": 8,
+  "accepts_high_altitude": true,
+  "accessibility_needs": []
+ },
+ "tradeoff_priority": [
+  "CORE_PLACES",
+  "PACE",
+  "COMFORT",
+  "COST"
+ ],
+ "risk_tolerance": {
+  "accepts_weather_dependent_core": true
+ },
+ "route_modes": [
+  "transit",
+  "driving",
+  "walking"
+ ],
+ "_说明": "广佛双城串联示例：出发地即首城（广州），次日跨城至佛山后返程。"
+}

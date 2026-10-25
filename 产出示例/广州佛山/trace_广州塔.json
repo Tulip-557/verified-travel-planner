@@ -1,0 +1,109 @@
+{
+  "provider": "amap",
+  "generated_at": "2026-10-25T09:53:10.135701+00:00",
+  "call_count": 1,
+  "calls": [
+    {
+      "endpoint": "/v3/place/text",
+      "params": {
+        "keywords": "广州塔",
+        "offset": "1",
+        "page": "1",
+        "extensions": "all",
+        "city": "广州",
+        "citylimit": "true"
+      },
+      "fetched_at": "2026-10-25T09:53:10.135701+00:00",
+      "response": {
+        "suggestion": {
+          "keywords": [],
+          "cities": []
+        },
+        "count": "100",
+        "infocode": "10000",
+        "pois": [
+          {
+            "parent": "B0JRSRL01Q",
+            "pcode": "440000",
+            "keytag": "4A景区",
+            "type": "风景名胜;风景名胜;国家级景点",
+            "photos": [
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/d5b56df50d024cbd33e4e1a16f77d419"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/548caf7e81c63a843faae5d1a9be968c"
+              },
+              {
+                "provider": [],
+                "title": [],
+                "url": "http://store.is.autonavi.com/showpic/d4bb7a5b77ff1de082bb50452c61657c"
+              }
+            ],
+            "building": [],
+            "typecode": "110202",
+            "poiweight": [],
+            "citycode": "020",
+            "adname": "海珠区",
+            "children": [],
+            "featured_reviews_remake": [],
+            "tel": "020-89338222",
+            "id": "B00140WBI1",
+            "tag": [],
+            "entr_location": "113.323692,23.105562",
+            "adcode": "440105",
+            "pname": "广东省",
+            "biz_type": "tour",
+            "cityname": "广州市",
+            "postcode": [],
+            "business_area": "赤岗",
+            "childtype": "202",
+            "atag": [],
+            "name": "广州塔",
+            "shopid": [],
+            "favorite_num": [],
+            "navi_poiid": "F49F011043_173081",
+            "distance": [],
+            "importance": [],
+            "biz_ext": {
+              "cost": [],
+              "opentime2": "周一至周日 09:30-22:30 最晚进入22:00",
+              "rating": "4.8",
+              "open_time": "09:30-22:30",
+              "ticket_ordering": "0"
+            },
+            "recommend": "3",
+            "discount_num": "0",
+            "gridcode": "3413522522",
+            "shopinfo": "2",
+            "alias": "小蛮腰|广州塔小蛮腰|电视塔",
+            "event": [],
+            "indoor_map": "1",
+            "email": [],
+            "timestamp": "2026-10-25 15:57:26",
+            "website": "www.cantontower.com",
+            "address": "阅江西路222号",
+            "space_num": [],
+            "match": "0",
+            "indoor_data": {
+              "cmsid": "HN000257",
+              "truefloor": [],
+              "cpid": "B00140WBI1",
+              "floor": []
+            },
+            "exit_location": [],
+            "location": "113.324521,23.106428",
+            "groupbuy_num": "0",
+            "featured_reviews": []
+          }
+        ],
+        "status": "1",
+        "info": "OK"
+      }
+    }
+  ]
+}

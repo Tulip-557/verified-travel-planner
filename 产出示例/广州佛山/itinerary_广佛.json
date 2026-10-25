@@ -1,0 +1,125 @@
+{
+ "budget_cny": 500,
+ "timezone": "Asia/Shanghai",
+ "constraints": {
+  "max_daily_minutes": 600,
+  "max_walking_km_per_day": 8,
+  "default_transfer_buffer_minutes": 15,
+  "stale_after_hours": 24
+ },
+ "_说明": "segments.duration_minutes / distance_meters / estimated_cost 全部来自高德实采（POI 段见 留痕_路段_广佛.json，城市级见 snapshot_广佛.json，均 2026-10-25 采集，含 raw_calls/call_log 留痕）。walking_km 为规划估算（非实测），出发前应按实况调整。",
+ "activities": [
+  {
+   "id": "d1-tower",
+   "name": "广州塔",
+   "type": "ATTRACTION",
+   "start": "2026-11-07T10:00:00+08:00",
+   "end": "2026-11-07T12:30:00+08:00",
+   "walking_km": 2,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  },
+  {
+   "id": "d1-shamian",
+   "name": "沙面公园",
+   "type": "ATTRACTION",
+   "start": "2026-11-07T13:30:00+08:00",
+   "end": "2026-11-07T15:30:00+08:00",
+   "walking_km": 2,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  },
+  {
+   "id": "d1-chenjiaci",
+   "name": "陈家祠广场",
+   "type": "ATTRACTION",
+   "start": "2026-11-07T16:15:00+08:00",
+   "end": "2026-11-07T17:45:00+08:00",
+   "walking_km": 1,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  },
+  {
+   "id": "d2-zumiao",
+   "name": "祖庙",
+   "type": "ATTRACTION",
+   "start": "2026-11-08T10:00:00+08:00",
+   "end": "2026-11-08T12:00:00+08:00",
+   "walking_km": 2,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  },
+  {
+   "id": "d2-lingnan",
+   "name": "岭南天地（含午餐）",
+   "type": "MEAL",
+   "start": "2026-11-08T12:30:00+08:00",
+   "end": "2026-11-08T14:15:00+08:00",
+   "walking_km": 1,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  },
+  {
+   "id": "d2-nanfeng",
+   "name": "南风古灶",
+   "type": "ATTRACTION",
+   "start": "2026-11-08T15:10:00+08:00",
+   "end": "2026-11-08T17:00:00+08:00",
+   "walking_km": 2,
+   "estimated_cost": 0,
+   "source_checked_at": "2026-10-25T17:55:00+08:00"
+  }
+ ],
+ "segments": [
+  {
+   "from_id": "d1-tower",
+   "to_id": "d1-shamian",
+   "mode": "driving",
+   "duration_minutes": 33,
+   "distance_meters": 12608,
+   "buffer_minutes": 25,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  },
+  {
+   "from_id": "d1-shamian",
+   "to_id": "d1-chenjiaci",
+   "mode": "driving",
+   "duration_minutes": 18,
+   "distance_meters": 3517,
+   "buffer_minutes": 25,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  },
+  {
+   "from_id": "d1-chenjiaci",
+   "to_id": "d2-zumiao",
+   "mode": "transit",
+   "duration_minutes": 61,
+   "distance_meters": 24143,
+   "buffer_minutes": 60,
+   "estimated_cost": 6,
+   "_来源": "高德公交 2026-10-25（跨城，1 次换乘）"
+  },
+  {
+   "from_id": "d2-zumiao",
+   "to_id": "d2-lingnan",
+   "mode": "walking",
+   "duration_minutes": 11,
+   "distance_meters": 755,
+   "buffer_minutes": 15,
+   "estimated_cost": 0,
+   "_来源": "高德步行 2026-10-25"
+  },
+  {
+   "from_id": "d2-lingnan",
+   "to_id": "d2-nanfeng",
+   "mode": "driving",
+   "duration_minutes": 25,
+   "distance_meters": 5287,
+   "buffer_minutes": 25,
+   "estimated_cost": 0,
+   "_来源": "高德驾车 2026-10-25"
+  }
+ ]
+}

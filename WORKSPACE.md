@@ -49,7 +49,7 @@
 | ------------ | ----------------------------------------------------- | -------------------------------------------------------------- |
 | **数字可信度**    | 证据四级 `[A]/[B]/[C]/[D]` + 四条死线 + **九道闸门**，**机器可判**      | 票价与玩法混着写，无分级——6 个对标项目里 **0 个**有等价机制                            |
 | **没数据时怎么办**  | 标 `[D]`，**绝不猜**                                       | 常见做法是「API 失败就回退 LLM 知识库」——`travel-guidebook`(89⭐) 把它写进 FAQ 当卖点 |
-| **文档与代码一致性** | `validate_skill.py` 机器校验，连它自己声明的「19 条规则 / 81 处断言」也一起查 | 无                                                              |
+| **文档与代码一致性** | `validate_skill.py` 机器校验，连它自己声明的「19 条规则 / 83 处断言」也一起查 | 无                                                              |
 | **离线可用性**    | 单文件 HTML，配图 base64 内联，**0 个外部依赖**，可整文件 MD5 复现         | 多依赖 Google Fonts / CDN 图标，断网即降级                                |
 
 本质差别在第二行：**同类项目把「可用性」放在「可信度」之前，本包相反。**
@@ -93,7 +93,7 @@ D:\旅游\
 │   │   ├── social_login.py         ← 用户授权登录态采集探针（AUTH 档：--check/--launch/--grab）
 │   │   ├── cdp_read.py             ← CDP 只读读取器：滚动触发懒加载 + 穿透 Shadow DOM
 │   │   │                             内置最小 WebSocket 客户端，零第三方依赖
-│   │   ├── validate_skill.py       ← 文档计数断言校验（19 条规则 / 81 处断言，可进 CI）
+│   │   ├── validate_skill.py       ← 文档计数断言校验（19 条规则 / 83 处断言，可进 CI）
 │   │   ├── shoot.py                ← 无头浏览器四档溢出探针 + 截图
 │   │   ├── set_amap_key.py         ← 高德 key 配置（跨平台）
 │   │   ├── doctor.py / desource.py
@@ -311,7 +311,7 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   已修（门票降 `[D]` 并补官方渠道出路、送礼段补时戳、孤儿来源挂到日落活动）。  
   **注意：这 5 处都不是数字错，是把单源信息标成了够不着的等级**——正是「标注纪律」与  
   「事实正确」的区别。负向样本 6 类违规全部命中；退出码 0/2 三态验证正确。
-- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（144 条测试，标准库  
+- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（153 条测试，标准库  
   unittest）、`tools/ship.py` 一键回归（九道闸门 + 渲染基线，FAIL 退出码 2）、  
   CI `.github/workflows/gates.yml`（gates 跑 `ship.py` + `gitleaks` 密钥扫描）。  
   命令：`python verified-travel-planner/tools/ship.py`
@@ -338,8 +338,19 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   车程；--fix-end 钉死末点；**不写任何文件**（采纳是人的决策，自动改事实源会让
   「每个数字有来源」失效）。实测：东莞 nearby 3 停留点判「已近优不动它」（诚实负向），
   构造 Z 字折返 100.1→66.7 km 省 33%。
-- [ ] **C 级 · `examples/` 更多样例**——现有两个示例已分别覆盖「完整交付链路」（东莞）与  
-  「渲染基线」（成都）两类用途；缺的是第三个用途（如**多城串联**或**纯过境**），需要时再补
+- [x] **2026-10-25 · MCP 服务 `tools/mcp_server.py`**（landscape P3 收口）——零第三方依赖实现
+  JSON-RPC 2.0 over stdio（initialize/notifications/ping/tools/list/tools/call，换行分帧，
+  日志走 stderr 不污染 stdout 专线）；暴露 12 个 MCP 能力（doctor/validate_request/evaluate/
+  validate_plan/source_audit/freshness/render/quality_report/route_optimize/evidence_report/
+  revision_audit/claim_audit）；执行=子进程跑既有 CLI，退出码语义透传（2=校验未过不算
+  isError 但完整输出随回）。协议冒烟全过：initialize→tools/list→真实示例调用→坏路径→
+  未知方法 -32601→通知不回应→EOF 退出码 0。
+- [x] **2026-10-25 · 第三类样例（多城串联）`产出示例/广州佛山/`**——WORKSPACE 唯一遗留待办收口。
+  2026-10-25 高德现采：6 POI（trace 留档）+ 跨城双模式（公交 61 分钟/¥6/换乘 1、城市级驾车
+  77 分钟，snapshot 含 raw_calls）+ 5 段 POI 级路段（引擎 AmapClient.route，call_log 留档）。
+  闸门实测抓真问题并修复：E2 compact 档缺自带时戳 ×9、E6 孤儿来源、evaluate 换乘余量
+  HARD ×4（按判据重排时刻表）、claim_audit 段成本 0 元未声明、C4/C5 精简版两轮收紧至
+  59.7%。九道闸门全绿，成都/上海/东莞渲染基线不受影响。
 - [x] **P4 · 行前公告扫描 `bulletin.py`（2026-10-01 落地）**——`--plan` 按 POI × 五类
   事件（闭馆/调价/管制/新开/活动）出 sweep 计划；`--check` 校验采集条目（时戳必填、
   **公告类死线只认 [A]**，[C] 传闻 error 退回）并产出渲染摘要；渲染走 #overview 注入
