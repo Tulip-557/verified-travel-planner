@@ -311,7 +311,7 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   已修（门票降 `[D]` 并补官方渠道出路、送礼段补时戳、孤儿来源挂到日落活动）。  
   **注意：这 5 处都不是数字错，是把单源信息标成了够不着的等级**——正是「标注纪律」与  
   「事实正确」的区别。负向样本 6 类违规全部命中；退出码 0/2 三态验证正确。
-- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（128 条测试，标准库  
+- [x] **C 级 · 工程保障（2026-09-28 落地）**——自动化测试套件 `tests/`（144 条测试，标准库  
   unittest）、`tools/ship.py` 一键回归（九道闸门 + 渲染基线，FAIL 退出码 2）、  
   CI `.github/workflows/gates.yml`（gates 跑 `ship.py` + `gitleaks` 密钥扫描）。  
   命令：`python verified-travel-planner/tools/ship.py`
@@ -326,6 +326,18 @@ python tools\travel_planner.py weather --city 中山市 --start 2026-09-28 --end
   降级须在 v2 的 `meta.revision_log` 用 about 子串声明（留痕即合规），`--strict` 拦
   **悄悄降级**（退出码 2）；整句改写的绕行用「删 [A]/[B] × 新增声明」二次相似配对
   （≥0.3）兜住，判「疑似改写降级」。东莞真实数据演练：¥89→¥109 与 [A]→[C] 均现形。
+- [x] **2026-10-25 · 行程质量评分 `quality_report.py`**（landscape P2 收口）——四维逐点可解释：
+  节奏疲劳（活动数上限带出处：mobility>style>缺省、跨度、步行量、走马观花、用餐间隔）/
+  成本效率（itinerary.budget_cny 一律总额口径，request 人均×人头差>5% 并列报出不裁决）/
+  体验匹配（must_visit 双向子串，别名对不上如实报未匹配并列景点清单）/
+  衔接稳健（buffer 达标率、长段紧衔接、踩闭馆边缘）。OK=1/WARN=0.5/RED=0，
+  --strict 才拦 RED；空 activities 拒绝评分（EMPTY_ITINERARY 教训）。东莞实测抓到
+  真问题：D3 步行 9km 超 8km 上限（RED）、预算口径 request 4500 vs itinerary 3900 不一致。
+- [x] **2026-10-25 · 动线优化建议 `route_optimize.py`**（landscape P3 收口）——最近邻 + 2-opt
+  （确定性，same input → same output），haversine 直线口径全文标【估算】、明说非高德实测
+  车程；--fix-end 钉死末点；**不写任何文件**（采纳是人的决策，自动改事实源会让
+  「每个数字有来源」失效）。实测：东莞 nearby 3 停留点判「已近优不动它」（诚实负向），
+  构造 Z 字折返 100.1→66.7 km 省 33%。
 - [ ] **C 级 · `examples/` 更多样例**——现有两个示例已分别覆盖「完整交付链路」（东莞）与  
   「渲染基线」（成都）两类用途；缺的是第三个用途（如**多城串联**或**纯过境**），需要时再补
 - [x] **P4 · 行前公告扫描 `bulletin.py`（2026-10-01 落地）**——`--plan` 按 POI × 五类

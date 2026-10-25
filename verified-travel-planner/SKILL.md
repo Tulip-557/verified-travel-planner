@@ -739,6 +739,17 @@ python "<SKILL_ROOT>/tools/compact_check.py" --facts 路书_XX_事实源.json \
 **报出须重查不等于写错了**——它是一张「出发前照着打勾」的清单，
 和四条死线是同一件事的两面：死线管「能不能写」，时效管「写到哪天为止还作数」。
 
+**另有两件「建议层」工具（不阻断、不写回）**：
+```bash
+# 行程质量评分：排得好不好（节奏/成本/体验/衔接四维，逐点可解释）——
+# 与 evaluate 的「排不排得通」互补，WARN 清单是调整抓手不是返工令
+python "<SKILL_ROOT>/tools/quality_report.py" itinerary_XX.json --request trip_request.json
+
+# 动线优化建议：同样的点换个顺序能少走多少【估算·直线】公里——
+# 直线≠车程，采纳前用 amap-snapshot 复核；工具不写任何文件，改不改事实源由人决定
+python "<SKILL_ROOT>/tools/route_optimize.py" nearby_XX.json --fix-end
+```
+
 脚本返回结构化结果，**消费 JSON 而非解析终端文字**。
 退出码：`0` 通过 ｜ `1` 执行出错 ｜ `2` 校验未通过 ｜ `3` 证据不全（`INCOMPLETE_EVIDENCE`）。
 
@@ -925,6 +936,8 @@ verified-travel-planner/
 │   ├── cross_check.py          ← 独立源核查（内容真实第 3 层：拆穿转引充双源）
 │   ├── evidence_report.py      ← 证据健康度一页纸（聚合各闸门结论+徽章分布→HTML 可信度概览；纯汇总不阻断）
 │   ├── revision_audit.py       ← 改版审计（两版事实源声明级 diff：数值变化/等级升降；降级须 revision_log 声明，--strict 拦悄悄降级）
+│   ├── quality_report.py       ← 行程质量评分（节奏疲劳/成本效率/体验匹配/衔接稳健；四维逐点可解释，不与 evaluate 重复）
+│   ├── route_optimize.py       ← 动线优化建议（最近邻+2-opt，直线【估算】口径；只出建议绝不写回事实源）
 │   ├── bulletin.py             ← 行前公告扫描（事件 sweep 计划 + 死线分级 + 渲染摘要）
 │   ├── review_trust.py         ← 口碑体检（水军/推广信号：只出信号不结论）
 │   ├── validate_skill.py       ← 文档计数断言校验（防「N 项 / N 模块」漂移；可进 CI）
